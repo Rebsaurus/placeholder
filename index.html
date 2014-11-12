@@ -3,26 +3,71 @@
 <head>
 	<script src="qa.js"></script>
 	<!--other script and external css included here-->
+
+	<link rel="stylesheet" href="style.css">
+
 </head>
+
 <body>
 
+<!--Velg hvilken klinikk-->
 
-<h1> Select District </h1>
+<h2> Select District </h2>
 <select id = "districtDropdown">
 	<option value:"disctric1"> District1</option>
 	<option value:"district2"> District2</option>
 	<option value:"district3"> District3</option>
 </select>
 
-
-<h1> Select Clinic </h1>
+<h2> Select Clinic </h2>
 <select id = "clinicDropdown">
 	<option value:"clinic1"> Clinic1</option>
 	<option value:"clinic2"> Clinic2</option>
 	<option value:"clinic3"> Clinic3</option>
 </select>
-<br>
+
+<br><br>
 <input type ="button" onclick="popup()" value="Next">
+
+<!--Tabellen-->
+
+<table border="1" style="width:100%">
+  <tr>
+    <th>Quality check</th>
+    <th>Database</th> 
+    <th>Registry</th> 
+    <th>Journal</th> 
+  </tr>
+  <tr>
+    <td>Age</td>
+    <td><form action="tabell_action.asp">
+	<input type="checkbox" name="age" value="Ja"></form></td>
+    <td><form action="tabell_action.asp">
+	<input type="checkbox" name="age" value="Ja"></form></td>
+    <td><form action="tabell_action.asp">
+	<input type="checkbox" name="age" value="Ja"></form></td>
+  </tr>
+      <tr>
+    <td>Sex</td>
+    <td><form action="tabell_action.asp">
+	<input type="checkbox" name="sex" value="Ja"></form></td>
+    <td><form action="tabell_action.asp">
+	<input type="checkbox" name="sex" value="Ja"></form></td>
+    <td><form action="tabell_action.asp">
+	<input type="checkbox" name="sex" value="Ja"></form></td>
+  </tr>
+      <tr>
+    <td>Children</td>
+    <td><form action="tabell_action.asp">
+	<input type="checkbox" name="children" value="Ja"></form></td>
+    <td><form action="tabell_action.asp">
+	<input type="checkbox" name="children" value="Ja"></form></td>
+    <td><form action="tabell_action.asp">
+	<input type="checkbox" name="children" value="Ja"></form></td>
+  </tr>
+ </table>
+<br>
+<input type ="button" onclick="popup()" value="Submit">
 
 </body>
 </html>

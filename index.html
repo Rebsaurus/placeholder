@@ -6,7 +6,9 @@
 
   <!--jquery for tabellen-->
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-  <script type="text/javascript">
+  <script src="api_calls.js"></script>
+  <script src="main.js"></script>
+  <!--<script type="text/javascript">
       $(function howManyAreChecked() {
           $("#tabellSubmit").click(function howMany() {
               var checkedBoxes = $("#qaTabell input:checked");
@@ -14,7 +16,7 @@
           });
       });
   </script>
-
+-->
   <!--link til css-->
   <link rel="stylesheet" href="style.css">
 
@@ -22,20 +24,22 @@
 
 <body>
 
-<!--Velg hvilken klinikk-->
+<!--Choose facility-->
 
-<h3> Select District </h3>
-<select id = "districtDropdown">
-  <option value:"disctric1"> District1</option>
-  <option value:"district2"> District2</option>
-  <option value:"district3"> District3</option>
+<h3> Select Facility </h3>
+<select id = "facilityDropdown" onSelect="">
+  <option value:"placeholder"> Choose a facility</option>
+  <option value:"facility1"> Facility1</option>
+  <option value:"facility2"> Facility2</option>
+  <option value:"facility3"> Facility3</option>
 </select>
 
-<h3> Select Clinic </h3>
-<select id = "clinicDropdown">
-  <option value:"clinic1"> Clinic1</option>
-  <option value:"clinic2"> Clinic2</option>
-  <option value:"clinic3"> Clinic3</option>
+<h3> Select Form </h3>
+<select id = "formDropdown" >
+  <option value:"placeholder"> Choose a form</option>
+  <option value:"form1"> Form1</option>
+  <option value:"form2"> Form2</option>
+  <option value:"form3"> Form3</option>
 </select>
 
 <br><br>

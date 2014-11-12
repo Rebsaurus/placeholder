@@ -1,10 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<script src="qa.js"></script>
-	<!--other script and external css included here-->
+  <script src="qa.js"></script>
+  <!--other script and external css included here-->
 
-	<link rel="stylesheet" href="style.css">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+  <script type="text/javascript">
+      $(function howManyAreChecked() {
+          $("#tabellSubmit").click(function howMany() {
+              var checkedBoxes = $("#qaTabell input:checked");
+              alert(checkedBoxes.length + " checked.");
+          });
+      });
+  </script>
+
+  <link rel="stylesheet" href="style.css">
 
 </head>
 
@@ -14,16 +24,16 @@
 
 <h3> Select District </h3>
 <select id = "districtDropdown">
-	<option value:"disctric1"> District1</option>
-	<option value:"district2"> District2</option>
-	<option value:"district3"> District3</option>
+  <option value:"disctric1"> District1</option>
+  <option value:"district2"> District2</option>
+  <option value:"district3"> District3</option>
 </select>
 
 <h3> Select Clinic </h3>
 <select id = "clinicDropdown">
-	<option value:"clinic1"> Clinic1</option>
-	<option value:"clinic2"> Clinic2</option>
-	<option value:"clinic3"> Clinic3</option>
+  <option value:"clinic1"> Clinic1</option>
+  <option value:"clinic2"> Clinic2</option>
+  <option value:"clinic3"> Clinic3</option>
 </select>
 
 <br><br>
@@ -34,7 +44,7 @@
 <br><br>
 <h2> Quality Assessment Checklist </h2>
 
-<form action="">
+<form action="" id="qaTabell">
 <table border="1" style="width:100%">
   <tr>
     <th>Quality check</th>
@@ -45,7 +55,7 @@
   <tr>
     <td>Age</td>
     <td>
-	<input type="checkbox" id="age" value="Ja"></td>
+  <input type="checkbox" id="age" value="Ja"></td>
     <td><input type="checkbox" id="age1" value="Ja"></td>
     <td><input type="checkbox" id="age2" value="Ja"></td>
   </tr>
@@ -64,7 +74,7 @@
  </table>
 </form>
 <br>
-<input type ="submit" value="Submit">
+<input type ="submit" id="tabellSubmit" onClick="" value="Submit">
 
 </body>
 </html>

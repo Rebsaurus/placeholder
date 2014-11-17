@@ -21,6 +21,8 @@ body {
 	input.largerCheckbox{
 		transform: scale(2);
 		webkit-transform: scale(2);
+		ms-transform: scale(2);
+		moz-transform: scale(2);
 	}
 
 	.qaTabell { 
@@ -47,6 +49,8 @@ body {
 	input.largerCheckbox{
 		transform: scale(3);
 		webkit-transform: scale(3);
+		ms-transform: scale(3);
+		moz-transform: scale(3);
 	}
 	.qaTabell { 
 		line-height: 50px;

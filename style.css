@@ -1,11 +1,51 @@
-body {
-	text-align: center;
+html {
+    height: 100%;
+    width: 99%;
+    background-color: #C9E7E9;
+}
 
+body {
+    height: 100%;
+    width: 99%;
+    text-align: center;
 }
 
 table, th, td {
-    border: 1px solid black;
+    border: dotted 1px black;
     border-collapse: collapse;
     margin-top: 2%;
     text-align: center;
+    height: 5%;
+}
+
+input {
+	height: 5%;
+	width: 50%;
+	font-size: 130%;
+
+}
+
+input[type=submit]{
+	background-color: #448299;
+    border-radius: 5px;
+    padding: 3px 7px 3px 7px;
+    height: 7%;
+    width: 10%;
+    text-decoration: none;
+    color: #F0F0F0;
+    font-family: Tahoma;
+    font-weight: bold;
+    font-size: 150%;
+}
+
+input[type=text]{
+	text-align: center;
+    
+    font-size: 130%;
+}
+
+select{
+	height: 5%;
+	width: 50%;
+	font-size: 130%;
 }

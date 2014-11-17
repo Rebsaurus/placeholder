@@ -6,7 +6,7 @@
 
   <!--jquery for tabellen-->
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-  <script src="api_calls.js"></script>
+  <!--<script src="api_calls.js"></script>
   <script src="main.js"></script>
   <!--<script type="text/javascript">
       $(function howManyAreChecked() {
@@ -34,16 +34,11 @@
   <option value:"facility3"> Facility3</option>
 </select>
 
-<h3> Select Form </h3>
-<select id = "formDropdown" >
-  <option value:"placeholder"> Choose a form</option>
-  <option value:"form1"> Form1</option>
-  <option value:"form2"> Form2</option>
-  <option value:"form3"> Form3</option>
-</select>
+<h3> Find Form </h3>
+<input id="middels" type="text" name="formToFill" onChange="populateTable">
 
 <br><br>
-<input type ="button" onclick="popup()" value="Next">
+<!---<input type ="button" onclick="popup()" value="Next">
 
 <!--Tabellen-->
 

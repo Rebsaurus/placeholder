@@ -1,21 +1,21 @@
-<<<<<<< HEAD
+
 /* dhis blue: #1d5288*/
-body {
-	text-align: center;
-	font-family: arial;
-=======
+
+
 html {
     height: 100%;
     width: 99%;
     background-color: #C9E7E9;
 }
->>>>>>> origin/rebeks_apiKall
+
 
 body {
     height: 100%;
     width: 99%;
     text-align: center;
+	font-family: arial;
 }
+
 /*Responsive Design */
 @media only screen and (max-width: 480px) {
 	input.largerCheckbox{
@@ -52,29 +52,24 @@ body {
 /* -END- responsive design */
 
 table, th, td {
-<<<<<<< HEAD
-    border: 1px solid;
-=======
-    border: dotted 1px black;
->>>>>>> origin/rebeks_apiKall
+    /*border: 1px solid;*/
+    border: dotted 1px black; 
+
+
     border-collapse: collapse;
     border-color: #0066FF;
     margin-top: 2%;
     text-align: center;
-<<<<<<< HEAD
 
 }
 
 table tr:nth-child(even) td{
 		background-color: #7aa6d3;
 }
+
 table th{
 	background-color: #1d5288;
 	color: #FFF;
-}
-
-=======
-    height: 5%;
 }
 
 input {
@@ -108,4 +103,3 @@ select{
 	width: 50%;
 	font-size: 130%;
 }
->>>>>>> origin/rebeks_apiKall

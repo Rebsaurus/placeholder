@@ -1,7 +1,10 @@
 $(function howManyAreChecked() {
+          var checkedBoxes = 0;
           $("#tabellSubmit").click(function howMany() {
-              var checkedBoxes = $("#qaTabell input:checked");
-              alert(checkedBoxes.length + " checked.");
+            if($("#qaTabell input:checked").length > 2) {
+              checkedBoxes = checkedBoxes +1;
+              alert(checkedBoxes);
+            }
           });
       });
 

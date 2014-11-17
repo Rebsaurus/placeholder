@@ -9,7 +9,7 @@
 
   <!--jquery for tabellen-->
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-
+  <!-- ta vekk dette når du vet det fungerer
   <script type="text/javascript">
       $(function howManyAreChecked() {
           var checkedBoxes = 0;
@@ -27,7 +27,7 @@
 </head>
 
 <body>
-<!--Velg hvilken klinikk-->
+<!--Velg hvilken klinikk
 <div class = "">
   <h3> Select District </h3>
   <select id="districtSelect" onchange="showClinic()">
@@ -48,18 +48,25 @@
   </div>
 </div>
 
-<!--Choose facility-->
+<!--Choose facility
 
 <h3> Select Facility </h3>
-<select id = "facilityDropdown" onSelect="">
+<select id = "facilityDropdown" onSelect="showClinic()">
   <option value:"placeholder"> Choose a facility</option>
   <option value:"facility1"> Facility1</option>
   <option value:"facility2"> Facility2</option>
   <option value:"facility3"> Facility3</option>
 </select>
+-->
+<div id="selectFacilityDiv">
+  <h3> Select Facility </h3>
+  <input id="selectFacility" type="text" name="facilityToQA" onChange="showForm()">
+</div>
 
-<h3> Find Form </h3>
-<input id="middels" type="text" name="formToFill" onChange="populateTable">
+<div id="findFormDiv" style="display:none">
+  <h3> Find Form </h3>
+  <input type="text" name="formToFill"  onChange="showTable()">
+</div>
 
 <!--Tabellen-->
 <div id="qaTable" style="display:none">

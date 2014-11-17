@@ -1,13 +1,13 @@
-/*var district = ["Aclinic" "Bclinic", "Cclinic"];*/
+//API-kall
 
-function showClinic(){
-	var selectedDistrict = document.getElementById("districtSelect").value;
-	if (selectedDistrict > 0){
-		document.getElementById("clinicSelect").style.display = "block";
-	}
+function showForm(){
+	//API-kall
+	document.getElementById("findFormDiv").style.display = "block";
+
 }
 
 function showTable(){
+	//API-kall
 	document.getElementById("qaTable").style.display = "block";
 	var chosenClinic = document.getElementById("clinicOpts").value;
 	document.getElementById("chosenClinic").innerHTML = chosenClinic;

@@ -2,109 +2,74 @@
 <html>
 <head>
 
+  <!--jquery for tabellen-->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+
   <!--other script and external css included here-->
   <script src="qa.js"></script>
   <script src="api_calls.js"></script>
   <script src="main.js"></script>
 
-  <!--jquery for tabellen-->
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-  <!-- ta vekk dette når du vet det fungerer
-  <script type="text/javascript">
-      $(function howManyAreChecked() {
-          var checkedBoxes = 0;
-          $("#tabellSubmit").click(function howMany() {
-            if($("#qaTabell input:checked").length > 2) {
-              checkedBoxes = checkedBoxes +1;
-              alert(checkedBoxes);
-            }
-          });
-      });
-  </script>
   <!--link til css-->
   <link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
-<!--Velg hvilken klinikk
-<div class = "">
-  <h3> Select District </h3>
-  <select id="districtSelect" onchange="showClinic()">
-    <option selected = "true" style= "display:none;"> Select District </option>
-    <option value="1"> District1</option>
-    <option value="2"> District2</option>
-    <option value="3"> District3</option>
-  </select>
-
-  <div id="clinicSelect" style="display:none" onchange="showTable()">
-    <h3> Select Clinic </h3>
-    <select id = "clinicOpts">
-      <option selected = "true" style= "display:none;"> Select Clinic </option>
-      <option value="Clinic1"> Clinic1</option>
-      <option value="Clinic2"> Clinic2</option>
-      <option value="Clinic3"> Clinic3</option>
-    </select>
+  <div id="selectFacilityDiv">
+    <h3> Select Facility </h3>
+    <input id="selectFacility" type="text" name="facilityToQA" onChange="showForm()">
   </div>
-</div>
 
-<!--Choose facility
+  <div id="facilityName" style="display:none">
+   <h3 id = "chosenClinic" class = "hideOnPhone">Facility name </h3>
+ </div>
 
-<h3> Select Facility </h3>
-<select id = "facilityDropdown" onSelect="showClinic()">
-  <option value:"placeholder"> Choose a facility</option>
-  <option value:"facility1"> Facility1</option>
-  <option value:"facility2"> Facility2</option>
-  <option value:"facility3"> Facility3</option>
-</select>
--->
-<div id="selectFacilityDiv">
-  <h3> Select Facility </h3>
-  <input id="selectFacility" type="text" name="facilityToQA" onChange="showForm()">
-</div>
-
-<div id="findFormDiv" style="display:none">
+ <div id="findFormDiv" style="display:none">
   <h3> Find Form </h3>
   <input type="text" name="formToFill"  onChange="showTable()">
+</div>
+
+<div id="formName" style="display:none">
+ <h3 id = "chosenClinic" class = "hideOnPhone">Type of form </h3>
 </div>
 
 <!--Tabellen-->
 <div id="qaTable" style="display:none">
   <br><br>
-  <h3 id = "chosenClinic" class = "hideOnPhone">temptext </h3>
   <h2 class ="hideOnPhone"> Quality Assessment Checklist </h2>
 
   <form action="" class="qaTabell" id="qaTabell">
-  <table border="1" style="width:100%">
-    <tr>
-      <th>Quality check</th>
-      <th>Database</th> 
-      <th>Registry</th> 
-      <th>Journal</th> 
-    </tr>
-    <tr>
-      <td>Age</td>
-      <td>
-    <input type="checkbox" class="largerCheckbox" id="age" value="Ja"></td>
-      <td><input type="checkbox" class="largerCheckbox" id="age1" value="Ja"></td>
-      <td><input type="checkbox" class="largerCheckbox" id="age2" value="Ja"></td>
-    </tr>
+    <table border="1" style="width:100%">
+      <tr>
+        <th>Quality check</th>
+        <th>Database</th> 
+        <th>Registry</th> 
+        <th>Journal</th> 
+      </tr>
+      <tr>
+        <td>Age</td>
+        <td>
+          <input type="checkbox" class="largerCheckbox" id="age" value="Ja"></td>
+          <td><input type="checkbox" class="largerCheckbox" id="age1" value="Ja"></td>
+          <td><input type="checkbox" class="largerCheckbox" id="age2" value="Ja"></td>
+        </tr>
         <tr>
-      <td>Sex</td>
-      <td><input type="checkbox" class="largerCheckbox" id="sex" value="Ja"></td>
-      <td><input type="checkbox" class="largerCheckbox" id="sex1" value="Ja"></td>
-      <td><input type="checkbox" class="largerCheckbox" id="sex2" value="Ja"></td>
-    </tr>
+          <td>Sex</td>
+          <td><input type="checkbox" class="largerCheckbox" id="sex" value="Ja"></td>
+          <td><input type="checkbox" class="largerCheckbox" id="sex1" value="Ja"></td>
+          <td><input type="checkbox" class="largerCheckbox" id="sex2" value="Ja"></td>
+        </tr>
         <tr>
-      <td>Children</td>
-      <td><input type="checkbox" class="largerCheckbox" id="children" value="Ja"></td>
-      <td><input type="checkbox" class="largerCheckbox" id="children1" value="Ja"></td>
-      <td><input type="checkbox" class="largerCheckbox" id="children2" value="Ja"></td>
-    </tr>
-  </table>
-  </form>
-  <br>
-  <input type ="submit" class="submitButton" id="tabellSubmit" onClick="" value="Submit">
-</div>
+          <td>Children</td>
+          <td><input type="checkbox" class="largerCheckbox" id="children" value="Ja"></td>
+          <td><input type="checkbox" class="largerCheckbox" id="children1" value="Ja"></td>
+          <td><input type="checkbox" class="largerCheckbox" id="children2" value="Ja"></td>
+        </tr>
+      </table>
+    </form>
+    <br>
+    <input type ="submit" class="submitButton" id="tabellSubmit" onClick="" value="Submit">
+  </div>
 </body>
 </html>

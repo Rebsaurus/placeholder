@@ -6,7 +6,7 @@ function getFacilities (){
 
 function getForms (){
 	url = window.location + "/api/programs.json";
-	alert(url);
+	//alert(url);
 	$.get({
 
 	});

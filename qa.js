@@ -3,11 +3,12 @@
 function showForm(){
 	//API-kall
 	document.getElementById("findFormDiv").style.display = "block";
-
+	//document.getElementById("facilityName").style.display = "block";
 }
 
 function showTable(){
 	//API-kall
+	//document.getElementById("formName").style.display = "block";
 	document.getElementById("qaTable").style.display = "block";
 	var chosenClinic = document.getElementById("clinicOpts").value;
 	document.getElementById("chosenClinic").innerHTML = chosenClinic;

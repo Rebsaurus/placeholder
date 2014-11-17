@@ -28,7 +28,15 @@ body {
 		font-size: 20px; 
 	}
 	.submitButton{
-		width:60%; height:30px;
+		width:80%; height:30px;
+		background-color: #448299;
+    	border-radius: 5px;
+    	padding: 3px 7px 3px 7px;
+    	text-decoration: none;
+    	color: #F0F0F0;
+    	font-family: Tahoma;
+    	font-weight: bold;
+    	font-size: 100%;
 	}
 	.hideOnPhone{
 		display: none;
@@ -45,7 +53,15 @@ body {
 		font-size: 25px;  
 	}
 	.submitButton{
-		width:80px; height:40px;
+		width:20%; height:40px;
+		background-color: #448299;
+    	border-radius: 5px;
+    	padding: 3px 7px 3px 7px;
+    	text-decoration: none;
+    	color: #F0F0F0;
+    	font-family: Tahoma;
+    	font-weight: bold;
+    	font-size: 150%;
 	}
 	
 }
@@ -72,14 +88,14 @@ table th{
 	color: #FFF;
 }
 
-input {
+/*input {
 	height: 5%;
 	width: 50%;
 	font-size: 130%;
 
-}
+}*/
 
-input[type=submit]{
+/*input[type=submit]{
 	background-color: #448299;
     border-radius: 5px;
     padding: 3px 7px 3px 7px;
@@ -90,13 +106,20 @@ input[type=submit]{
     font-family: Tahoma;
     font-weight: bold;
     font-size: 150%;
-}
+}*/
 
 input[type=text]{
 	text-align: center;
     
     font-size: 130%;
+    width: 50%;
+    height: 5%;
 }
+
+/*input[type=checkbox]{
+	 height: 32%;
+	 width: 32%;
+}*/
 
 select{
 	height: 5%;

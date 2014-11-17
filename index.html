@@ -7,14 +7,27 @@
 
   <!--jquery for tabellen-->
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+
   <script type="text/javascript">
+      $(function howManyAreChecked() {
+          var checkedBoxes = 0;
+          $("#tabellSubmit").click(function howMany() {
+            if($("#qaTabell input:checked").length > 2) {
+              checkedBoxes = checkedBoxes +1;
+              alert(checkedBoxes);
+            }
+          });
+      });
+  </script>
+
+  <!-- <script type="text/javascript">
       $(function howManyAreChecked() {
           $("#tabellSubmit").click(function howMany() {
               var checkedBoxes = $("#qaTabell input:checked");
               alert(checkedBoxes.length + " checked.");
           });
       });
-  </script>
+  </script> -->
 
   <!--link til css-->
   <link rel="stylesheet" href="style.css">

@@ -6,7 +6,9 @@
 
   <!--jquery for tabellen-->
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-  <script type="text/javascript">
+  <!--<script src="api_calls.js"></script>
+  <script src="main.js"></script>
+  <!--<script type="text/javascript">
       $(function howManyAreChecked() {
           $("#tabellSubmit").click(function howMany() {
               var checkedBoxes = $("#qaTabell input:checked");
@@ -14,8 +16,12 @@
           });
       });
   </script>
+<<<<<<< HEAD
 
 
+=======
+-->
+>>>>>>> origin/rebeks_apiKall
   <!--link til css-->
   <link rel="stylesheet" href="style.css">
 
@@ -23,6 +29,7 @@
 
 <body>
 
+<<<<<<< HEAD
 <!--Velg hvilken klinikk-->
 <div class = "">
   <h3> Select District </h3>
@@ -44,6 +51,23 @@
   </div>
 </div>
 
+=======
+<!--Choose facility-->
+
+<h3> Select Facility </h3>
+<select id = "facilityDropdown" onSelect="">
+  <option value:"placeholder"> Choose a facility</option>
+  <option value:"facility1"> Facility1</option>
+  <option value:"facility2"> Facility2</option>
+  <option value:"facility3"> Facility3</option>
+</select>
+
+<h3> Find Form </h3>
+<input id="middels" type="text" name="formToFill" onChange="populateTable">
+
+<br><br>
+<!---<input type ="button" onclick="popup()" value="Next">
+>>>>>>> origin/rebeks_apiKall
 
 <!--Tabellen-->
 <div id="qaTable" style="display:none">

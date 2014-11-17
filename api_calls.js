@@ -5,5 +5,18 @@ function getFacilities (){
 }
 
 function getForms (){
-	
+	url = window.location + "/api/programs.json";
+	alert(url);
+	$.get({
+
+	});
+	//window.location/api/programs.json
+}
+
+function getTable(){
+
+}
+
+function populateTable(){
+
 }

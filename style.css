@@ -1,11 +1,58 @@
+/* dhis blue: #1d5288*/
 body {
 	text-align: center;
+	font-family: arial;
 
 }
+/*Responsive Design */
+@media only screen and (max-width: 480px) {
+	input.largerCheckbox{
+		transform: scale(2);
+		webkit-transform: scale(2);
+	}
+
+	.qaTabell { 
+		line-height: 30px;
+		font-size: 20px; 
+	}
+	.submitButton{
+		width:60%; height:30px;
+	}
+	.hideOnPhone{
+		display: none;
+	}
+}
+
+@media only screen and (min-width: 481px) {
+	input.largerCheckbox{
+		transform: scale(3);
+		webkit-transform: scale(3);
+	}
+	.qaTabell { 
+		line-height: 50px;
+		font-size: 25px;  
+	}
+	.submitButton{
+		width:80px; height:40px;
+	}
+	
+}
+/* -END- responsive design */
 
 table, th, td {
-    border: 1px solid black;
+    border: 1px solid;
     border-collapse: collapse;
+    border-color: #0066FF;
     margin-top: 2%;
     text-align: center;
+
 }
+
+table tr:nth-child(even) td{
+		background-color: #7aa6d3;
+}
+table th{
+	background-color: #1d5288;
+	color: #FFF;
+}
+

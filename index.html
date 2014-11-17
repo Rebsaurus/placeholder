@@ -6,11 +6,12 @@
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 
   <!--other script and external css included here-->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+
   <script src="qa.js"></script>
   <script src="api_calls.js"></script>
   <script src="main.js"></script>
 
-  <!--link til css-->
   <link rel="stylesheet" href="style.css">
 
 </head>
@@ -40,36 +41,37 @@
   <h2 class ="hideOnPhone"> Quality Assessment Checklist </h2>
 
   <form action="" class="qaTabell" id="qaTabell">
-    <table border="1" style="width:100%">
-      <tr>
-        <th>Quality check</th>
-        <th>Database</th> 
-        <th>Registry</th> 
-        <th>Journal</th> 
-      </tr>
-      <tr>
-        <td>Age</td>
-        <td>
-          <input type="checkbox" class="largerCheckbox" id="age" value="Ja"></td>
-          <td><input type="checkbox" class="largerCheckbox" id="age1" value="Ja"></td>
-          <td><input type="checkbox" class="largerCheckbox" id="age2" value="Ja"></td>
-        </tr>
-        <tr>
-          <td>Sex</td>
-          <td><input type="checkbox" class="largerCheckbox" id="sex" value="Ja"></td>
-          <td><input type="checkbox" class="largerCheckbox" id="sex1" value="Ja"></td>
-          <td><input type="checkbox" class="largerCheckbox" id="sex2" value="Ja"></td>
-        </tr>
-        <tr>
-          <td>Children</td>
-          <td><input type="checkbox" class="largerCheckbox" id="children" value="Ja"></td>
-          <td><input type="checkbox" class="largerCheckbox" id="children1" value="Ja"></td>
-          <td><input type="checkbox" class="largerCheckbox" id="children2" value="Ja"></td>
-        </tr>
-      </table>
-    </form>
-    <br>
-    <input type ="submit" class="submitButton" id="tabellSubmit" onClick="" value="Submit">
-  </div>
+  <table border="1" style="width:100%">
+    <tr>
+      <th>Quality check</th>
+      <th>Database</th> 
+      <th>Registry</th> 
+      <th>Journal</th> 
+    </tr>
+    <tr id="agetr">
+      <td>Age</td>
+      <td>
+    <input type="checkbox" class="largerCheckbox" id="age1" value="Ja"></td>
+      <td><input type="checkbox" class="largerCheckbox" id="age2" value="Ja"></td>
+      <td><input type="checkbox" class="largerCheckbox" id="age3" value="Ja"></td>
+    </tr>
+    <tr id ="gendertr">
+      <td>Gender</td>
+      <td><input type="checkbox" class="largerCheckbox" id="sex" value="Ja"></td>
+      <td><input type="checkbox" class="largerCheckbox" id="sex1" value="Ja"></td>
+      <td><input type="checkbox" class="largerCheckbox" id="sex2" value="Ja"></td>
+    </tr>
+    <tr id="childrentr">
+      <td>Children</td>
+      <td><input type="checkbox" class="largerCheckbox" id="children" value="Ja"></td>
+      <td><input type="checkbox" class="largerCheckbox" id="children1" value="Ja"></td>
+      <td><input type="checkbox" class="largerCheckbox" id="children2" value="Ja"></td>
+    </tr>
+  </table>
+  </form>
+  <br>
+  <input type ="submit" class="submitButton" id="tabellSubmit" onClick="" value="Submit">
+
+</div>
 </body>
 </html>

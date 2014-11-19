@@ -4,6 +4,7 @@ function showForm(){
 	//API-kall
 	document.getElementById("findFormDiv").style.display = "block";
 	//document.getElementById("facilityName").style.display = "block";
+
 }
 
 function showTable(){
@@ -17,6 +18,18 @@ function showTable(){
 		document.getElementById("selector").style.display = "none";
 	}*/
 }
+
+
+function getFacilities (form){
+	url = window.location + "/api/programs" + form + ".json";
+
+
+
+	$.getJSON({
+
+	});
+}
+
 
 
 function popup(){

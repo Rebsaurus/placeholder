@@ -75,9 +75,8 @@ table, th, td {
     /*border: 1px solid;*/
     /*border: dotted 1px black; */
 
-
     border-collapse: collapse;
-    border-color: #0066FF;
+    /*border-color: #0066FF;*/
     margin-top: 2%;
     text-align: center;
 
@@ -126,7 +125,7 @@ input[type=text]{
 }*/
 
 select{
-	height: 5%;
+	height: 9%;
 	width: 50%;
 	font-size: 130%;
 }

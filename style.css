@@ -17,12 +17,12 @@ body {
 }
 
 /*Responsive Design */
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 550px) {
 	input.largerCheckbox{
-		transform: scale(2);
-		webkit-transform: scale(2);
-		ms-transform: scale(2);
-		moz-transform: scale(2);
+		-transform: scale(2);
+		-webkit-transform: scale(2);
+		-ms-transform: scale(2);
+		-moz-transform: scale(2);
 	}
 
 	.qaTabell { 
@@ -39,18 +39,20 @@ body {
     	font-family: Tahoma;
     	font-weight: bold;
     	font-size: 100%;
+    	/*position: fixed; bottom: 1px;*/
+
 	}
 	.hideOnPhone{
 		display: none;
 	}
 }
 
-@media only screen and (min-width: 481px) {
+@media only screen and (min-width: 551px) {
 	input.largerCheckbox{
-		transform: scale(3);
-		webkit-transform: scale(3);
-		ms-transform: scale(3);
-		moz-transform: scale(3);
+		-transform: scale(3);
+		-webkit-transform: scale(3);
+		-ms-transform: scale(3);
+		-moz-transform: scale(3);
 	}
 	.qaTabell { 
 		line-height: 50px;

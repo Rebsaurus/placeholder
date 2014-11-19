@@ -8,18 +8,27 @@
   <script src="qa.js"></script>
   <script src="api_calls.js"></script>
   <script src="main.js"></script>
+  <script src="popTable.js"></script>
 
   <link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
-  <div id="selectFacilityDiv">
-    <h3> Select Facility </h3>
-    <input id="selectFacility" type="text" name="facilityToQA" onChange="showForm()">
+  <div id="selectFacilityDiv" onLoad="getForms()">
+    <h3> Select Form </h3>
+    <select id="program"></select>
+    <!--<input id="selectFacility" type="text" name="facilityToQA" onChange="showForm()">-->
   </div>
 
-  <div id="facilityName" style="display:none">
+
+
+
+  <div id="noJSON" style="display:none">
+   <h3 id="nJ">No forms found</h3>
+ </div>
+
+ <div id="facilityName" style="display:none">
    <h3 id = "chosenClinic" class = "hideOnPhone">Facility name </h3>
  </div>
 

@@ -1,5 +1,5 @@
 // chrome --disable-web-security
-// husk at alle chromeprosesser må avsluttes
+// husk at alle chromeprosesser må avsluttes  
 
 /**
 *Gets a json object containing all forms and puts them in a html select

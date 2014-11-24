@@ -55,7 +55,7 @@ function populateTable(info, sjekk){
 	var antallInfo = 0;
 	var antallSjekk = 0;
 
-	//oppretter tabellen og størrelsen
+	//oppretter tabellen og størrelsen  
 	var string = '<form action="" class="qaTabell" id="qaTabell" ><table border="1" style="width:100%">';
 
 	//headeren til tabellen

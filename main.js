@@ -27,7 +27,7 @@ $(function howManyAreChecked() {
 });
 
 /**
-*Displays table when form and facility have been selected
+*Displays table when form and facility have been selected  
 */
 function showInfo(){
   document.getElementById("table").style.display = "block";

@@ -52,4 +52,3 @@ function printIDs(){
   console.log("Form ID: " + formID);
   console.log("Facility ID: " + facilityID);
 }
-

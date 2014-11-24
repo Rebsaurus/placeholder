@@ -1,7 +1,13 @@
-$(function selectForm() {
-  getForms();
-});
+var formID;
+var facilityID;
 
+function setFormID(value){
+  formID = value;
+}
+
+function setFacilityID(value){
+  facilityID = value;
+}
 
 $(function howManyAreChecked() {
   var checkedBoxes = 0;
@@ -20,37 +26,29 @@ $(function howManyAreChecked() {
   });
 });
 
-
-function showSelectFacilityDiv(){
-  //API-kall
-  document.getElementById("selectFacilityDiv").style.display = "block";
-  //document.getElementById("facilityName").style.display = "block";
-  selectedForm();
-}
-
-
+/**
+*Displays table when form and facility have been selected
+*/
 function showInfo(){
-  
-  document.getElementById("qaTable").style.display = "block";
-  
+  document.getElementById("table").style.display = "block";
   document.getElementById("selector").className = "hideOnPhone";
   document.getElementById("smallScreen").style.display = "block";
-  //document.getElementById("smallScreen").className = "showOnPhone";
 
   var chosenForm = $( "#selectFormDiv option:selected" ).text();
   var chosenClinic = $( "#selectFacilityDiv option:selected" ).text();
   document.getElementById("selectedFormAndClinic").innerHTML = chosenForm + ", " + chosenClinic;
-
-  getURL();
+  getProgramStagesID();
 }
 
-
-
-
+/**
+*Shows the select options
+*/
 function selectNew(){
-  console.log("inni selectNew");
   document.getElementById("selector").className = "showOnPhone";
-
   document.getElementById("smallScreen").style.display = "none";
 }
 
+function printIDs(){
+  console.log("Form ID: " + formID);
+  console.log("Facility ID: " + facilityID);
+}

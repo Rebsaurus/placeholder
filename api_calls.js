@@ -42,6 +42,8 @@ function getForms (){
 function selectedForm(){
 	var form = document.getElementById('program').value;
 	console.log(form);
+	
+	getFacilities();
 }
 /*
 function getFacilities (form){

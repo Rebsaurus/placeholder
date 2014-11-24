@@ -9,44 +9,48 @@
   <script src="api_calls.js"></script>
   <script src="main.js"></script>
   <script src="popTable.js"></script>
+  <!--<script type="text/javascript">getTable()</script>-->
 
   <link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
-  <div id="selectFacilityDiv" onLoad="getForms()">
-    <h3> Select Form </h3>
-    <select id="program" onChange="showForm()"></select>
-    <!--<input id="programTxt" type="text" onChange="showForm()">-->
-    <!--<input id="selectFacility" type="text" name="facilityToQA" onChange="showForm()">-->
+  <div id="selector">
+    <div id="selectFormDiv" onLoad="getForms()">
+      <h3> Select Form </h3>
+      <select id="program" onChange="showSelectFacilityDiv()"></select>
+      <!--<input id="programTxt" type="text" onChange="showForm()">-->
+    </div>
+
+
+    <div id="noJSON" style="display:none">
+     <h3 id="nJ">No forms found</h3>
+   </div>
+
+
+   <div id="selectFacilityDiv" style="display:none">
+    <h3> Select Facility </h3>
+    <select id="facility" onChange="showTable()"> </select>
+    <!--<input type="text" name="facilityToFill"  onChange="showTable()">-->
   </div>
-
-
-
-
-  <div id="noJSON" style="display:none">
-   <h3 id="nJ">No forms found</h3>
- </div>
-
- <div id="facilityName" style="display:none">
-   <h3 id = "chosenClinic" class = "hideOnPhone">Facility name </h3>
- </div>
-
- <div id="findFormDiv" style="display:none">
-  <h3> Find Form </h3>
-  <input type="text" name="formToFill"  onChange="showTable()">
 </div>
 
-<div id="formName" style="display:none">
- <h3 id = "chosenClinic" class = "hideOnPhone">Type of form </h3>
-</div>
 
 <!--Tabellen-->
 <div id="qaTable" style="display:none">
   <br><br>
   <h2 class ="hideOnPhone"> Quality Assessment Checklist </h2>
+  <div>
+    <button  class="newSelectButton" name="new" value="Change" style="float: right" onClick"selectNew()";>
+      <span> Change </span><br>
+      <span> Clinic </span>
+    </button>
+    <h4 id ="selectedFormAndClinic"> </h4>
+  </div>
 
+  
+<!--
   <form action="" class="qaTabell" id="qaTabell">
     <table border="1" style="width:100%">
       <tr>
@@ -76,6 +80,7 @@
         </tr>
       </table>
     </form>
+  -->
     <br>
     <input type ="submit" class="submitButton" id="tabellSubmit" onClick="" value="Submit">
 

@@ -17,12 +17,13 @@ body {
 }
 
 /*Responsive Design */
-@media only screen and (max-width: 480px) {
+/*Layout for phonesized display */
+@media only screen and (max-width: 550px) {
 	input.largerCheckbox{
-		transform: scale(2);
-		webkit-transform: scale(2);
-		ms-transform: scale(2);
-		moz-transform: scale(2);
+		-transform: scale(2);
+		-webkit-transform: scale(2);
+		-ms-transform: scale(2);
+		-moz-transform: scale(2);
 	}
 
 	.qaTabell { 
@@ -40,17 +41,32 @@ body {
     	font-weight: bold;
     	font-size: 100%;
 	}
+	.newSelectButton{
+		width:20%; height:60px;
+		background-color: #448299;
+    	border-radius: 5px;
+    	padding: 3px 7px 3px 7px;
+    	text-decoration: none;
+    	color: #F0F0F0;
+    	font-family: Tahoma;
+    	font-weight: bold;
+    	font-size: 100%;
+
+	}
 	.hideOnPhone{
 		display: none;
 	}
+	.showOnPhone{
+		display: block;
+	}
 }
 
-@media only screen and (min-width: 481px) {
+@media only screen and (min-width: 551px) {
 	input.largerCheckbox{
-		transform: scale(3);
-		webkit-transform: scale(3);
-		ms-transform: scale(3);
-		moz-transform: scale(3);
+		-transform: scale(3);
+		-webkit-transform: scale(3);
+		-ms-transform: scale(3);
+		-moz-transform: scale(3);
 	}
 	.qaTabell { 
 		line-height: 50px;
@@ -66,6 +82,9 @@ body {
     	font-family: Tahoma;
     	font-weight: bold;
     	font-size: 150%;
+	}
+	.newSelectButton{
+		display: none;
 	}
 	
 }
@@ -129,3 +148,4 @@ select{
 	width: 50%;
 	font-size: 130%;
 }
+

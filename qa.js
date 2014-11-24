@@ -4,7 +4,7 @@ function showForm(){
 	//API-kall
 	document.getElementById("findFormDiv").style.display = "block";
 	//document.getElementById("facilityName").style.display = "block";
-
+	selectedForm();
 }
 
 function showTable(){

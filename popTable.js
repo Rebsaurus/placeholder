@@ -1,24 +1,21 @@
 //marker ut alt fra <form ... til </form> nede i tabellen i index!!
 //erstatt med <script type="text/javascript">getTable()</script>
 
-function getURL(){
-	//url = window.location + "/api/programs.json";
+/**
+*Gets programStages' ID for the selected form
+*/
+function getProgramStagesID(){
+	//url = window.location + "/api/programs/" + formID + ".json";
 	var mockURL = "http://inf5750-1.uio.no/api/programs/" + formID + ".json";
 	var programStagesID;
 	$.getJSON(mockURL, function (data){
 		data = data.programStages;
 		programStagesID = data[0].id;
-
-		console.log(programStagesID +  " 1 " + data[0].id);
-		getTable(programStagesID);
+		createTable(programStagesID);
 	});
-
-	
 }
-
-function getTable(programStagesID){
-
-	console.log(programStagesID + " 2");
+function createTable(programStagesID){
+	clearTable();
 	var url = "http://inf5750-1.uio.no/api/programStages/" + programStagesID + ".json";
 	//var url = "http://inf5750-1.uio.no/api/programStages/MpL4KvKfdx9.json"
 	$.getJSON(url, function (data) {
@@ -49,6 +46,7 @@ function getTable(programStagesID){
 		console.log(sjekk);
 
 		populateTable(info, sjekk);
+		tableExists = true;
 	});
 }
 
@@ -89,4 +87,11 @@ function populateTable(info, sjekk){
 
 	//console.log(string);
 	console.log("hesterbest");
+}
+
+/**
+*Clears qaTable, preventing multiple tables
+*/
+function clearTable(){
+	$("#qaTable").html(""); 
 }

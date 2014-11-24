@@ -32,28 +32,32 @@ function getForms (){
 
 			//bestemme hvilke klinikker som kan ha denne formen
 			
-			//getFacilities(programs);
+			getFacilities();
 
 		}
 	});
 }
 
+function getFacilities (formID){
+	console.log("HEI");
+	//url = window.location + "/api/programs" + formID + ".json";
+	mockURL = "http://inf5750-1.uio.no/api/programs/RvSLGqbM5Ft.json";
+	$.getJSON(mockURL, function (data){
+		data = data.organisationUnits;
+		//console.log(JSON.stringify(data));
+		if(data == null){
+			document.getElementById("noJSON").style.display = "block";
+		} else{
 
-function selectedForm(){
-	var form = document.getElementById('program').value;
-	console.log(form);
-	
-	getFacilities();
-}
-/*
-function getFacilities (form){
-	url = window.location + "/api/programs" + form + ".json";
-
-
-
-	$.getJSON({
-
+			for(var i = 0; i < data.length; i++) {
+				//lagre i vanlig array
+				$('#facility').append('<option value="' + data[i].id + '">' + data[i].name + '</option>');
+			}
+		}
 	});
 }
 
-*/
+
+
+
+

@@ -5,7 +5,7 @@
   <!--other script and external css included here-->
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 
-  <script src="qa.js"></script>
+  <!--<script src="qa.js"></script>-->
   <script src="api_calls.js"></script>
   <script src="main.js"></script>
   <script src="popTable.js"></script>
@@ -17,46 +17,44 @@
 
 <body>
   <div id="smallScreen" style="display:none">
-    <button  class="newSelectButton" name="new" value="Change" style="float: center" onClick"selectNew()";>
+    <button  class="newSelectButton" name="new" value="Change" style="float: center" onClick="selectNew()";>
       Change clinic/form
     </button>
   </div>
 
   <div id="selector">
-    <div id="selectFormDiv" onLoad="getForms()">
+    <div id="selectFormDiv" >
       <h3> Select Form </h3>
-      <select id="program" onChange="showSelectFacilityDiv()"></select>
+      <select id="program" onChange="showSelectFacilityDiv(value)"></select>
       <!--<input id="programTxt" type="text" onChange="showForm()">-->
     </div>
 
-
     <div id="noJSON" style="display:none">
-     <h3 id="nJ">No forms found</h3>
-   </div>
+      <h3>No forms found</h3>
+    </div>
 
-
-   <div id="selectFacilityDiv" style="display:none">
-    <h3> Select Facility </h3>
-    <select id="facility" onChange="showInfo()"> </select>
+    <div id="selectFacilityDiv" style="display:none">
+      <h3> Select Facility </h3>
+      <select id="facility" onChange="showInfo()"> </select>
+    </div>
   </div>
-</div>
 
 
 
-<!--Tabellen-->
-<div id="qaTable" style="display:none">
-  <br><br>
-  <h2 class ="hideOnPhone"> Quality Assessment Checklist </h2>
-  <div>
+  <!--Tabellen-->
+  <div id="qaTable" style="display:none">
+    <br><br>
+    <h2 class ="hideOnPhone"> Quality Assessment Checklist </h2>
+    <div>
     <!--<button  class="newSelectButton" name="new" value="Change" style="float: right" onClick"selectNew()";>
       <span> Change </span><br>
       <span> Clinic </span>
     </button>-->
     <h4 id ="selectedFormAndClinic"> </h4>
   </div>
-    <br>
-    <input type ="submit" class="submitButton" id="tabellSubmit" onClick="" value="Submit">
+  <br>
+  <input type ="submit" class="submitButton" id="tabellSubmit" onClick="" value="Submit">
 
-  </div>
+</div>
 </body>
 </html>

@@ -1,9 +1,10 @@
 // chrome --disable-web-security
 // husk at alle chromeprosesser må avsluttes
 
+var formID;
 
 function getForms (){
-	//url = window.location + "/api/programs.json";
+	
 	url2 = "http://inf5750-1.uio.no/api/programs.json";
 
 	$.getJSON(url2, function (data){
@@ -17,13 +18,21 @@ function getForms (){
 				//lagre i vanlig array
 				$('#program').append('<option value="' + data[i].id + '">' + data[i].name + '</option>');
 			}
+		}
+	});
+}
 
-			var programs = {}
 
-			
-			for(var i = 0; i < data.length; i++){
-				programs[data[i].name] = data[i].id;
-			}
+function selectedForm(){
+
+  formID = document.getElementById('program').value;
+  //console.log(formChosen);
+
+  	/*
+	var programs = {}	
+		for(var i = 0; i < data.length; i++){
+			programs[data[i].name] = data[i].id;
+	}
 
 			//hente html-objektets value
 
@@ -31,17 +40,15 @@ function getForms (){
 			//etter hver change, se etter navn (filtersak)
 
 			//bestemme hvilke klinikker som kan ha denne formen
-			
+			*/
 			getFacilities();
 
-		}
-	});
 }
 
-function getFacilities (formID){
-	console.log("HEI");
-	//url = window.location + "/api/programs" + formID + ".json";
-	mockURL = "http://inf5750-1.uio.no/api/programs/RvSLGqbM5Ft.json";
+function getFacilities (){
+	console.log(formID);
+	//url = window.location + "/api/programs/" + formID + ".json";
+	mockURL = "http://inf5750-1.uio.no/api/programs/" + formID + ".json";
 	$.getJSON(mockURL, function (data){
 		data = data.organisationUnits;
 		//console.log(JSON.stringify(data));

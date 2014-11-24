@@ -1,10 +1,26 @@
 //marker ut alt fra <form ... til </form> nede i tabellen i index!!
 //erstatt med <script type="text/javascript">getTable()</script>
 
+function getURL(){
+	//url = window.location + "/api/programs.json";
+	var mockURL = "http://inf5750-1.uio.no/api/programs/" + formID + ".json";
+	var programStagesID;
+	$.getJSON(mockURL, function (data){
+		data = data.programStages;
+		programStagesID = data[0].id;
 
-function getTable(JSONurl){
-	//url = JSONurl;
-	url = "http://inf5750-1.uio.no/api/programStages/MpL4KvKfdx9.json";
+		console.log(programStagesID +  " 1 " + data[0].id);
+		getTable(programStagesID);
+	});
+
+	
+}
+
+function getTable(programStagesID){
+
+	console.log(programStagesID + " 2");
+	var url = "http://inf5750-1.uio.no/api/programStages/" + programStagesID + ".json";
+	//var url = "http://inf5750-1.uio.no/api/programStages/MpL4KvKfdx9.json"
 	$.getJSON(url, function (data) {
 		data = data.programStageDataElements;
 		var items = [];

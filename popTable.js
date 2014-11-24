@@ -71,6 +71,6 @@ function populateTable(info, sjekk){
 
 	$('#qaTable').append(string);
 
-	console.log(string);
+	//console.log(string);
 	console.log("hesterbest");
 }

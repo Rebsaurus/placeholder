@@ -9,7 +9,7 @@ function showSelectFacilityDiv(){
 }
 
 
-function showTable(value){
+function showInfo(){
 	//API-kall
 	//document.getElementById("formName").style.display = "block";
 	document.getElementById("qaTable").style.display = "block";
@@ -20,41 +20,31 @@ function showTable(value){
 		document.getElementById("selector").style.display = "none";
 
 	}*/
-	console.log(value);
+
 	
 	document.getElementById("selector").className = "hideOnPhone";
+	document.getElementById("smallScreen").style.display = "block";
+	//document.getElementById("smallScreen").className = "showOnPhone";
+
 
 	var chosenForm = $( "#selectFormDiv option:selected" ).text();
 	var chosenClinic = $( "#selectFacilityDiv option:selected" ).text();
 	document.getElementById("selectedFormAndClinic").innerHTML = chosenForm + ", " + chosenClinic;
 
-	getTable()
+	getTable();
 }
 
 
 
-function getFacilities (form){
-	//url = window.location + "/api/programs" + form + ".json";
-	mockURL = "http://inf5750-1.uio.no/api/programs/RvSLGqbM5Ft.json";
-	$.getJSON(mockURL, function (data){
-		data = data.organisationUnits;
-		//console.log(JSON.stringify(data));
-		if(data == null){
-			document.getElementById("noJSON").style.display = "block";
-		} else{
+function selectedForm(){
+	var form = document.getElementById('program').value;
+	console.log(form);
 
-			for(var i = 0; i < data.length; i++) {
-				//lagre i vanlig array
-				$('#facility').append('<option value="' + data[i].id + '">' + data[i].name + '</option>');
-			}
-		}
-	});
+	//getFacilities();
 }
 
 function selectNew(){
 	console.log("inni selectNew");
 	document.getElementById("selector").className = "showOnPhone";
 }
-
-
 

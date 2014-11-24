@@ -16,6 +16,12 @@
 </head>
 
 <body>
+  <div id="smallScreen" style="display:none">
+    <button  class="newSelectButton" name="new" value="Change" style="float: center" onClick"selectNew()";>
+      Change clinic/form
+    </button>
+  </div>
+
   <div id="selector">
     <div id="selectFormDiv" onLoad="getForms()">
       <h3> Select Form </h3>
@@ -31,10 +37,10 @@
 
    <div id="selectFacilityDiv" style="display:none">
     <h3> Select Facility </h3>
-    <select id="facility" onChange="showTable()"> </select>
-    <!--<input type="text" name="facilityToFill"  onChange="showTable()">-->
+    <select id="facility" onChange="showInfo()"> </select>
   </div>
 </div>
+
 
 
 <!--Tabellen-->
@@ -42,45 +48,12 @@
   <br><br>
   <h2 class ="hideOnPhone"> Quality Assessment Checklist </h2>
   <div>
-    <button  class="newSelectButton" name="new" value="Change" style="float: right" onClick"selectNew()";>
+    <!--<button  class="newSelectButton" name="new" value="Change" style="float: right" onClick"selectNew()";>
       <span> Change </span><br>
       <span> Clinic </span>
-    </button>
+    </button>-->
     <h4 id ="selectedFormAndClinic"> </h4>
   </div>
-
-  
-<!--
-  <form action="" class="qaTabell" id="qaTabell">
-    <table border="1" style="width:100%">
-      <tr>
-        <th>Quality check</th>
-        <th>Database</th> 
-        <th>Registry</th> 
-        <th>Journal</th> 
-      </tr>
-      <tr id="agetr">
-        <td>Age</td>
-        <td>
-          <input type="checkbox" class="largerCheckbox" id="age1" value="Ja"></td>
-          <td><input type="checkbox" class="largerCheckbox" id="age2" value="Ja"></td>
-          <td><input type="checkbox" class="largerCheckbox" id="age3" value="Ja"></td>
-        </tr>
-        <tr id ="gendertr">
-          <td>Gender</td>
-          <td><input type="checkbox" class="largerCheckbox" id="sex" value="Ja"></td>
-          <td><input type="checkbox" class="largerCheckbox" id="sex1" value="Ja"></td>
-          <td><input type="checkbox" class="largerCheckbox" id="sex2" value="Ja"></td>
-        </tr>
-        <tr id="childrentr">
-          <td>Children</td>
-          <td><input type="checkbox" class="largerCheckbox" id="children" value="Ja"></td>
-          <td><input type="checkbox" class="largerCheckbox" id="children1" value="Ja"></td>
-          <td><input type="checkbox" class="largerCheckbox" id="children2" value="Ja"></td>
-        </tr>
-      </table>
-    </form>
-  -->
     <br>
     <input type ="submit" class="submitButton" id="tabellSubmit" onClick="" value="Submit">
 

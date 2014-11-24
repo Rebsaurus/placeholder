@@ -17,6 +17,7 @@ body {
 }
 
 /*Responsive Design */
+/*Layout for phonesized display */
 @media only screen and (max-width: 550px) {
 	input.largerCheckbox{
 		-transform: scale(2);
@@ -39,11 +40,24 @@ body {
     	font-family: Tahoma;
     	font-weight: bold;
     	font-size: 100%;
-    	/*position: fixed; bottom: 1px;*/
+	}
+	.newSelectButton{
+		width:20%; height:60px;
+		background-color: #448299;
+    	border-radius: 5px;
+    	padding: 3px 7px 3px 7px;
+    	text-decoration: none;
+    	color: #F0F0F0;
+    	font-family: Tahoma;
+    	font-weight: bold;
+    	font-size: 100%;
 
 	}
 	.hideOnPhone{
 		display: none;
+	}
+	.showOnPhone{
+		display: block;
 	}
 }
 
@@ -68,6 +82,9 @@ body {
     	font-family: Tahoma;
     	font-weight: bold;
     	font-size: 150%;
+	}
+	.newSelectButton{
+		display: none;
 	}
 	
 }
@@ -131,3 +148,4 @@ select{
 	width: 50%;
 	font-size: 130%;
 }
+

@@ -27,6 +27,7 @@ console.log(JSON.stringify(data));
 		}
 	});
 }
+
 /*
 function getFacilities (form){
 	url = window.location + "/api/programs" + form + ".json";

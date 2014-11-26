@@ -59,19 +59,31 @@ function printIDs(){
 }
 
 function sendData(){
+  var typeDB = [];
   var checkBoxArray = [];
-  var counter = 0;
   $('#qaTable').find('input[type="checkbox"]').each(function () {
     var checkBox = this;
-    checkBoxArray[counter] = checkBox.id;
 
-   if(checkBox.checked == true){
-    console.log(checkBox.id);
-  }else{
-    console.log("ITTE CHECKED")
+    /*var splitID = checkBox.id.split('_');
+    typeDB.push({
+      id: splitID[0]
+    })*/
+
+    //$.inArray(value, array)// returns index of a value in an index
+    if(checkBox.checked == true){
+      //trueOrFalse = true;
+      checkBoxArray.push({
+        id: checkBox.id,
+        checked: true
+      })
+    }else{
+      checkBoxArray.push({
+        id: checkBox.id,
+        checked: false
+      })
+    }
+  });
+  for(var key in checkBoxArray){
+    console.log(checkBoxArray[key]);
   }
-});
-
-
-
 }

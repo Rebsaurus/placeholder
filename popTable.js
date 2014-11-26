@@ -75,7 +75,6 @@ function populateTable(info, sjekk){
 		string = string + '<tr id="tr' + antallSjekk + '" name="' + tmp2 + '"><td>' + tmp2 + '</td>';
 		var y = 0;
 		var i = 0;
-		console.log("HERHEHRHER      " + infoArray[y] + " " + tmp2);
 		while (i != antallInfo) {
 			string = string + '<td><input type="checkbox" class="largerCheckbox" id="' + infoArray[y] + '_' + tmp2 + '" value="Ja"></td>';
 			i = i + 1;

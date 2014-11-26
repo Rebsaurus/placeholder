@@ -30,6 +30,7 @@ $(function getForms (){
 			}
 		
 			var sorted = forms.sort(function(a,b){
+				//console.log(forms[key]);
     			return a.name.localeCompare(b.name);
 			});
 

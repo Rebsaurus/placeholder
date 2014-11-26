@@ -1,5 +1,7 @@
 var formID;
 var facilityID;
+var rowCount;
+var headerCount;
 
 function setFormID(value){
   formID = value;
@@ -13,8 +15,8 @@ $(function howManyAreChecked() {
   var checkedBoxes = 0;
 
   $("#tabellSubmit").click(function howMany() {
-    var rowCount = $('#qaTabell tr').length -1;
-    var headerCount = $('#qaTabell th').length -1;
+    rowCount = $('#qaTabell tr').length -1;
+    headerCount = $('#qaTabell th').length -1;
     var i = 0;
 
     while (i < rowCount) {
@@ -25,6 +27,7 @@ $(function howManyAreChecked() {
 
     alert("Quality assesment results: " + checkedBoxes + " out of " + rowCount + " checks follows the quality standard.");
     checkedBoxes = 0;
+    sendData();
   });
 });
 
@@ -53,4 +56,22 @@ function selectNew(){
 function printIDs(){
   console.log("Form ID: " + formID);
   console.log("Facility ID: " + facilityID);
+}
+
+function sendData(){
+  var checkBoxArray = [];
+  var counter = 0;
+  $('#qaTable').find('input[type="checkbox"]').each(function () {
+    var checkBox = this;
+    checkBoxArray[counter] = checkBox.id;
+
+   if(checkBox.checked == true){
+    console.log(checkBox.id);
+  }else{
+    console.log("ITTE CHECKED")
+  }
+});
+
+
+
 }

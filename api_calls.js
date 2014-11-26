@@ -10,14 +10,32 @@ $(function getForms (){
 
 	$.getJSON(url2, function (data){
 		data = data.programs;
-		//console.log(JSON.stringify(data));
+
 		if(data == null){
 			document.getElementById("noJSON").style.display = "block";
 		} else{
-			
+			var forms = [];
 			for(var i = 0; i < data.length; i++) {
-				//lagre i vanlig array
-				$('#program').append('<option value="' + data[i].id + '">' + data[i].name + '</option>');
+				if(i == 0){
+					forms.push({
+						id: "index",
+						name: " <---- Choose a form ---->"
+					});
+				} else {
+					forms.push({
+						id: data[i].id,
+						name: data[i].name
+					});					
+				}
+			}
+		
+			var sorted = forms.sort(function(a,b){
+    			return a.name.localeCompare(b.name);
+			});
+
+
+			for(var key in forms){
+				$('#program').append('<option value="' + forms[key].id + '">' + forms[key].name +  '</option>');
 			}
 		}
 	});
@@ -37,8 +55,37 @@ function getFacilities (){
 		if(data == null){
 			document.getElementById("noJSON").style.display = "block";
 		} else{
+
+			/**
+			* Places all clinics in an associative array
+			*/
+			var facilities = [];
 			for(var i = 0; i < data.length; i++) {
-				$('#facility').append('<option value="' + data[i].id + '">' + data[i].name + '</option>');
+				if(i == 0){
+					facilities.push({
+						id: "index",
+						name: " <---- Choose a facility ---->"
+					});
+				} else {
+					facilities.push({
+						id: data[i].id,
+						name: data[i].name
+					});					
+				}
+			}
+		
+			/**
+			* Sorts said array
+			*/ 
+			var sorted = facilities.sort(function(a,b){
+    			return a.name.localeCompare(b.name);
+			});
+
+			/**
+			* Appends and print to <select>
+			*/ 
+			for(var key in facilities){
+				$('#facility').append('<option value="' + facilities[key].id + '">' + facilities[key].name +  '</option>');
 			}
 		}
 	});

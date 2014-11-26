@@ -1,5 +1,3 @@
-//marker ut alt fra <form ... til </form> nede i tabellen i index!!
-//erstatt med <script type="text/javascript">getTable()</script>
 
 /**
 *Gets programStages' ID for the selected form
@@ -80,13 +78,7 @@ function populateTable(info, sjekk){
 	}
 	string = string + '</table></form>';
 
-	//submit knappen
-	//string = string + '<br><input type ="submit" class="submitButton" id="tabellSubmit" onClick="" value="Submit">';
-
 	$('#qaTable').append(string);
-
-	//console.log(string);
-	console.log("hesterbest");
 }
 
 /**

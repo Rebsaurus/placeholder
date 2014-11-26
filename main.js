@@ -11,18 +11,20 @@ function setFacilityID(value){
 
 $(function howManyAreChecked() {
   var checkedBoxes = 0;
+
   $("#tabellSubmit").click(function howMany() {
-    if($("#qaTabell #agetr input:checked").length > 2) 
-      checkedBoxes = checkedBoxes +1;
-            
-      if($("#qaTabell #gendertr input:checked").length > 2) 
+    var rowCount = $('#qaTabell tr').length -1;
+    var headerCount = $('#qaTabell th').length -1;
+    var i = 0;
+
+    while (i < rowCount) {
+      if($("#qaTabell #tr" + i + " input:checked").length == headerCount)
         checkedBoxes = checkedBoxes +1;
+      i = i + 1;
+    }
 
-      if($("#qaTabell #childrentr input:checked").length > 2) 
-         checkedBoxes = checkedBoxes +1;
-
-        alert(checkedBoxes);
-
+    alert("Quality assesment results: " + checkedBoxes + " out of " + rowCount + " checks follows the quality standard.");
+    checkedBoxes = 0;
   });
 });
 

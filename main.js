@@ -27,7 +27,7 @@ $(function howManyAreChecked() {
 
     alert("Quality assesment results: " + checkedBoxes + " out of " + rowCount + " checks follows the quality standard.");
     checkedBoxes = 0;
-    sendData();
+    createData();
   });
 });
 
@@ -58,20 +58,13 @@ function printIDs(){
   console.log("Facility ID: " + facilityID);
 }
 
-function sendData(){
-  var typeDB = [];
+function createData(){
   var checkBoxArray = [];
   $('#qaTable').find('input[type="checkbox"]').each(function () {
     var checkBox = this;
-
-    /*var splitID = checkBox.id.split('_');
-    typeDB.push({
-      id: splitID[0]
-    })*/
-
+    
     //$.inArray(value, array)// returns index of a value in an index
     if(checkBox.checked == true){
-      //trueOrFalse = true;
       checkBoxArray.push({
         id: checkBox.id,
         checked: true
@@ -86,4 +79,10 @@ function sendData(){
   for(var key in checkBoxArray){
     console.log(checkBoxArray[key]);
   }
+  sendData();
 }
+
+function sendData(){
+
+}
+

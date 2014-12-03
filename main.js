@@ -28,7 +28,7 @@ $(function howManyAreChecked() {
       i = i + 1;
     }
 
-    alert("Quality assesment results: " + checkedBoxes + " out of " + rowCount + " checks follows the quality standard.");
+   // alert("Quality assesment results: " + checkedBoxes + " out of " + rowCount + " checks follows the quality standard.");
     checkedBoxes = 0;
     createData();
   });

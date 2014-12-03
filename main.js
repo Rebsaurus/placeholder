@@ -1,3 +1,6 @@
+//POST EXAMPLE http://inf5750-1.uio.no/api/systemSettings/ph-test
+//GET EXAMPLE http://inf5750-1.uio.no/api/systemSettings?key=ph-test
+
 var formID;
 var facilityID;
 var rowCount;
@@ -79,7 +82,7 @@ function createData(){
   for(var key in checkBoxArray){
     console.log(checkBoxArray[key]);
   }
-  sendData();
+  makeObject(checkBoxArray);
 }
 
 function sendData(){

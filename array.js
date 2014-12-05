@@ -58,6 +58,7 @@ for(var key in phArray){
 	}
 
  	//IF phObject is empty, this adds the first element/clinic
+ 	//phObject må hentes fra SystemSettings først da... sånn egentlig :D
  	if (phObject.length === 0){
  		phObject.push({
  			clinic:clinic

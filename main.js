@@ -2,7 +2,9 @@
 //GET EXAMPLE http://inf5750-1.uio.no/api/systemSettings?key=ph-test
 
 var formID;
+var formName;
 var facilityID;
+var facilityName;
 var rowCount;
 var headerCount;
 
@@ -42,9 +44,9 @@ function showInfo(){
   document.getElementById("selector").className = "hideOnPhone";
   document.getElementById("smallScreen").style.display = "block";
 
-  var chosenForm = $( "#selectFormDiv option:selected" ).text();
-  var chosenClinic = $( "#selectFacilityDiv option:selected" ).text();
-  document.getElementById("selectedFormAndClinic").innerHTML = chosenForm + ", " + chosenClinic;
+  formName = $( "#selectFormDiv option:selected" ).text();
+  facilityName = $( "#selectFacilityDiv option:selected" ).text();
+  document.getElementById("selectedFormAndClinic").innerHTML = formName + ", " + facilityName;
   getProgramStagesID();
 }
 
@@ -80,7 +82,7 @@ function createData(){
     }
   });
   for(var key in checkBoxArray){
-    console.log(checkBoxArray[key]);
+    //console.log(checkBoxArray[key]);
   }
   makeObject(checkBoxArray);
 }

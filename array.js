@@ -3,61 +3,19 @@ var phObject = {};
 var phArray = [];
 
 function makeObject(checkboxArray){
-	var mockURL =  "http://inf5750-1.uio.no/api/systemSettings/phArray";
+	var clinic = {};
+	var form = {}
+	var submits =[];
 
-
-	$.getJSON(mockURL, function(data){
-		
-		if(data == null){
-			//console.log("CHILIBEANS");
-			
-			//SKRIV SOM JSON-OBJECT I STRINGFORM
-			var formPerClinic = [];
-
-			for(var key in phArray){
-				if(key == facilityID){
-					phArray.push({
-						facility: facilityID,
-						form: formPerClinic
-					});
-				}
-			}
-
-			var phArray = []; //Vårt favorittarray -> THE one and only true JSON-object
-			/*for(var i = 0; i < phArray.length; i){
-				phArray.push({
-					facility: facilityID,
-					form: phArray.push({
-						formID
-					});
-				});
-}*/
-
-for(var key in phArray){
-	console.log(key);
-}
-
-} else {
-			//ABUSE DAT ARRAY
-			console.log("SOURBEANS");
+	clinic = {
+		name: facilityName,
+		cID: facilityID,
+		form: { 
+			name: formName,
+			fID: formID,
+			submits: checkboxArray
 		}
-	});
-
-//the larsikls maggix code!
-// må finne ut av hvordan vi kan legge til flere submit arrays i en form{}
-var clinic = {};
-var form = {}
-var submits =[];
-
-clinic = {
-	name: facilityName,
-	cID: facilityID,
-	form: { 
-		name: formName,
-		fID: formID,
-		submits: checkboxArray
 	}
-}
 
  	//IF phObject is empty, this adds the first element/clinic
  	//phObject må hentes fra SystemSettings først da... sånn egentlig :D
@@ -77,9 +35,7 @@ clinic = {
 				clinic:clinic
 			});
 		}
-		//phObject.clinic = $.extend({}, phObject.clinic, clinic)
 	}
-	//}
 
 	console.log(phArray);	
 	var myJsonString = JSON.stringify(phArray);
@@ -125,17 +81,9 @@ function containsFormObject(){
 	return false;
 }*/
 
-var phKey = "masterkey";
 function postData(dataJSON){
-	//POST EXAMPLE http://inf5750-1.uio.no/api/systemSettings/phArray
-	//api/systemSettings/my-key?value=my-val
-
 	$.ajax({
-		/*headers: { 
-       	 	'Accept': 'application/json',
-        	'Content-Type': 'application/json' 
-   		},*/
-   		contentType: "text/plain",
+		contentType: "text/plain",
 		type: "POST",
 		url: "http://inf5750-1.uio.no/api/systemSettings/phArray",
 		data: dataJSON,
@@ -143,12 +91,4 @@ function postData(dataJSON){
 			console.log("SWEEEEEEEEEEEET");
 		}
 	});
-
-/*contentType: 'text/plain',
-type: "POST",
-url: url,
-data: '{"thuc": "er best"}',
-success: function(data) {
-console.log("OK: " + data);*/
-	//$.post("http://inf5750-1.uio.no/api/systemSettings/phArray?" + dataJSON);
 }

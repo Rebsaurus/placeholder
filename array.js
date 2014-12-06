@@ -1,11 +1,19 @@
 //var phObject = []; //Allmighty array, should be fetched from a pretty systemSettings URL
 var phObject = {};
 var phArray = [];
+var submits =[];
 
 function makeObject(checkboxArray){
+	getObjects();
+
 	var clinic = {};
 	var form = {}
-	var submits =[];
+	var submit = [];
+	var counter = 0;
+
+	submits.push({
+		submit: checkboxArray
+	});
 
 	clinic = {
 		name: facilityName,
@@ -13,7 +21,7 @@ function makeObject(checkboxArray){
 		form: { 
 			name: formName,
 			fID: formID,
-			submits: checkboxArray
+			submits: submits
 		}
 	}
 
@@ -27,6 +35,16 @@ function makeObject(checkboxArray){
  		if (containsClinic() === true){
  			if(containsForm() === true){
 				//TODO add data to form and save
+				clinic = {
+					name: facilityName,
+					cID: facilityID,
+					form: { 
+						name: formName,
+						fID: formID,
+						submits: submits
+					}
+				}
+				postObjects(phArray);
 			}else{
 				//TODO add form to clinic and save data
 			}
@@ -39,8 +57,8 @@ function makeObject(checkboxArray){
 
 	console.log(phArray);	
 	var myJsonString = JSON.stringify(phArray);
-	console.log(myJsonString);
-	postData(myJsonString);
+	//console.log(myJsonString);
+	postObjects(phArray);
 }
 
 function containsClinic() {
@@ -81,14 +99,23 @@ function containsFormObject(){
 	return false;
 }*/
 
-function postData(dataJSON){
+function postObjects(dataJSON){
 	$.ajax({
 		contentType: "text/plain",
 		type: "POST",
 		url: "http://inf5750-1.uio.no/api/systemSettings/phArray",
-		data: dataJSON,
+		data: JSON.stringify(dataJSON),
 		success: function(data){
 			console.log("SWEEEEEEEEEEEET");
 		}
+	});
+}
+
+function getObjects(){
+	mockURL = "http://inf5750-1.uio.no/api/systemSettings/phArray";
+
+	$.getJSON(mockURL, function(data){
+		phArray = data;
+		console.log(phArray[0].clinic.form.submits.length);
 	});
 }

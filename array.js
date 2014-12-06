@@ -1,4 +1,6 @@
-var phObject = []; //Allmighty array, should be fetched from a pretty systemSettings URL
+//var phObject = []; //Allmighty array, should be fetched from a pretty systemSettings URL
+var phObject = {};
+var phArray = [];
 
 function makeObject(checkboxArray){
 	var mockURL =  "http://inf5750-1.uio.no/api/systemSettings/phArray";
@@ -44,56 +46,85 @@ for(var key in phArray){
 
 //the larsikls maggix code!
 // må finne ut av hvordan vi kan legge til flere submit arrays i en form{}
-	var clinic = {};
-	var form = {}
-	var submits =[];
+var clinic = {};
+var form = {}
+var submits =[];
 
-	clinic = {
-		name: facilityName,
-		cID: facilityID,
-		form: { 
-			name: formName,
-			fID: formID,
-			submits: checkboxArray
-		}
+clinic = {
+	name: facilityName,
+	cID: facilityID,
+	form: { 
+		name: formName,
+		fID: formID,
+		submits: checkboxArray
 	}
+}
 
  	//IF phObject is empty, this adds the first element/clinic
  	//phObject må hentes fra SystemSettings først da... sånn egentlig :D
- 	if (phObject.length === 0){
- 		phObject.push({
+ 	if (phArray.length === 0){
+ 		phArray.push({
  			clinic:clinic
  		});
  	}else{
-		if (containsClinic() === true){
-			if(containsForm() === true){
+ 		if (containsClinic() === true){
+ 			if(containsForm() === true){
 				//TODO add data to form and save
 			}else{
 				//TODO add form to clinic and save data
 			}
 		}else{
+<<<<<<< HEAD
 			phObject.push({
  				clinic:clinic
  			});
+=======
+			phArray.push({
+				clinic:clinic
+			});
+>>>>>>> 9b701418746e05ddb0453f44e5a48e08cd9f11e0
 		}
+		//phObject.clinic = $.extend({}, phObject.clinic, clinic)
 	}
-	console.log(phObject);	
+	//}
+
+	console.log(phArray);	
 }
 
 function containsClinic() {
-    for (var key in phObject) {
-        if (phObject[key].clinic.cID === facilityID) {
-            return true;
-        }
-    }
-    return false;
-}
-
-function containsForm(){
-	for (var key in phObject){
-		if (phObject[key].clinic.form.fID === formID){ ////må muligens bytte ut "form" med noe annet, kan se ut som det er brukt til noe lurt
+	for (var key in phArray){
+		if (phArray[key].clinic.cID === facilityID) {
 			return true;
 		}
 	}
 	return false;
 }
+
+function containsForm(){
+	for (var key in phArray){
+		if (phArray[key].clinic.form.fID === formID){ ////må muligens bytte ut "form" med noe annet, kan se ut som det er brukt til noe lurt
+			return true;
+	}
+}
+return false;
+}
+
+/*function containsClinicObject(){
+	for (var key in phObject) {
+		if (!phObject.hasOwnProperty(key)) continue;
+		if (phObject[key] === facilityID) {
+			return true;
+		}
+	}
+	return false;
+}
+
+function containsFormObject(){
+	for (var key in phObject) {
+		if (!phObject.hasOwnProperty(key)) continue;
+		if (phObject[key] === formID) {
+			return true;
+		}
+	}
+	return false;
+}*/

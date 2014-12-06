@@ -8,11 +8,10 @@ function makeObject(checkboxArray){
 
 	$.getJSON(mockURL, function(data){
 		
-		if(data !== null){
-			console.log(data);
+		if(data == null){
+			//console.log("CHILIBEANS");
 			
 			//SKRIV SOM JSON-OBJECT I STRINGFORM
-		
 			var formPerClinic = [];
 
 			for(var key in phArray){
@@ -32,7 +31,7 @@ function makeObject(checkboxArray){
 						formID
 					});
 				});
-	*/
+}*/
 
 for(var key in phArray){
 	console.log(key);
@@ -74,15 +73,9 @@ clinic = {
 				//TODO add form to clinic and save data
 			}
 		}else{
-<<<<<<< HEAD
-			phObject.push({
- 				clinic:clinic
- 			});
-=======
 			phArray.push({
 				clinic:clinic
 			});
->>>>>>> 9b701418746e05ddb0453f44e5a48e08cd9f11e0
 		}
 		//phObject.clinic = $.extend({}, phObject.clinic, clinic)
 	}

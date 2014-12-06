@@ -84,6 +84,7 @@ clinic = {
 	console.log(phArray);	
 	var myJsonString = JSON.stringify(phArray);
 	console.log(myJsonString);
+	postData(myJsonString);
 }
 
 function containsClinic() {
@@ -123,3 +124,31 @@ function containsFormObject(){
 	}
 	return false;
 }*/
+
+var phKey = "masterkey";
+function postData(dataJSON){
+	//POST EXAMPLE http://inf5750-1.uio.no/api/systemSettings/phArray
+	//api/systemSettings/my-key?value=my-val
+
+	$.ajax({
+		/*headers: { 
+       	 	'Accept': 'application/json',
+        	'Content-Type': 'application/json' 
+   		},*/
+   		contentType: "text/plain",
+		type: "POST",
+		url: "http://inf5750-1.uio.no/api/systemSettings/phArray",
+		data: dataJSON,
+		success: function(data){
+			console.log("SWEEEEEEEEEEEET");
+		}
+	});
+
+/*contentType: 'text/plain',
+type: "POST",
+url: url,
+data: '{"thuc": "er best"}',
+success: function(data) {
+console.log("OK: " + data);*/
+	//$.post("http://inf5750-1.uio.no/api/systemSettings/phArray?" + dataJSON);
+}

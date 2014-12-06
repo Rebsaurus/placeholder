@@ -1,4 +1,4 @@
-//POST EXAMPLE http://inf5750-1.uio.no/api/systemSettings/ph-test
+//POST EXAMPLE http://inf5750-1.uio.no/api/systemSettings/phArray
 //GET EXAMPLE http://inf5750-1.uio.no/api/systemSettings?key=ph-test
 
 var formID;

@@ -1,0 +1,21 @@
+{
+"clinc" : {
+"name": "facilityName",
+"facilityID": "facilityID",
+"form" : {
+"name": "formName",
+"formID": "formID",
+"submits": [
+{"0" : [
+{"fid_dhis": true},
+{"fid_reg": false},
+{"fid_jour": true}
+]
+},
+{"1" : [
+{"fid_dhis": false},
+{"fid_reg": true},
+{"fid_jour": false}
+]}
+
+]}}}

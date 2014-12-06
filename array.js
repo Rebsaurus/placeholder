@@ -82,6 +82,8 @@ clinic = {
 	//}
 
 	console.log(phArray);	
+	var myJsonString = JSON.stringify(phArray);
+	console.log(myJsonString);
 }
 
 function containsClinic() {

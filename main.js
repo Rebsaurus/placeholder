@@ -7,6 +7,7 @@ var facilityID;
 var facilityName;
 var rowCount;
 var headerCount;
+var completeRows;
 
 function setFormID(value){
   formID = value;
@@ -16,7 +17,6 @@ function setFacilityID(value){
   facilityID = value;
 }
 
-/*
 $(function howManyAreChecked() {
   var checkedBoxes = 0;
 
@@ -31,11 +31,12 @@ $(function howManyAreChecked() {
       i = i + 1;
     }
 
+    completeRows = checkedBoxes;
    // alert("Quality assesment results: " + checkedBoxes + " out of " + rowCount + " checks follows the quality standard.");
     checkedBoxes = 0;
-    createData();
+    //createData();
   });
-});*/
+});
 
 /**
 *Displays table when form and facility have been selected  

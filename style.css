@@ -114,15 +114,21 @@ table th{
 	color: #FFF;
 }
 
+/* #id styles */
 #toStatistics{
 	float: right;
 	position: relative;
 }
 
-#table{
-	position: absolute;
-}
+/*
+#banner{
+	width: 99%;
+	background-color: #1d5288;
+	padding: 3px 7px 3px 7px;
+	color: #FFF;
+}*/
 
+/* link styles */
 a:link{
 	color: #787878;
 }
@@ -132,14 +138,9 @@ a:visited{
 }
 
 a:active{
-	color: #276ab0;
+	color: #6186AC;
 
 }
-
-p{
-	color: 787878;
-}
-
 
 input[type=text]{
 	text-align: center;

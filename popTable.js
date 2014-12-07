@@ -13,10 +13,12 @@ function getProgramStagesID(){
 		createTable(programStagesID);
 	});
 }
+
 function createTable(programStagesID){
 	clearTable();
 	var url = "http://inf5750-1.uio.no/api/programStages/" + programStagesID + ".json";
 	//var url = "http://inf5750-1.uio.no/api/programStages/MpL4KvKfdx9.json"
+	
 	$.getJSON(url, function (data) {
 		data = data.programStageDataElements;
 		var items = [];
@@ -28,7 +30,6 @@ function createTable(programStagesID){
 				items[i] = data[i].dataElement;
 			}
 		}
-		//console.log(items);
 
 		//set med ting som journal, dhis, registry osv..
 		var info = {};
@@ -42,8 +43,6 @@ function createTable(programStagesID){
 			info[splittet[0]] = true;
 			sjekk[splittet[1]] = true;
 		}
-		//console.log(info);
-		//console.log(sjekk);
 
 		populateTable(info, sjekk);
 		tableExists = true;
@@ -71,7 +70,6 @@ function populateTable(info, sjekk){
 	string = string + '</tr>';
 
 	//resten av tabellen
-
 	for (var tmp2 in sjekk) {
 		string = string + '<tr id="tr' + antallSjekk + '" name="' + tmp2 + '"><td>' + tmp2 + '</td>';
 		var y = 0;
@@ -98,4 +96,14 @@ function populateTable(info, sjekk){
 */
 function clearTable(){
 	$("#qaTable").html(""); 
+}
+
+
+/**
+* Creates statisticsTable
+*/
+
+function createStatisticsTable(){
+	var string = "LOL";
+	$('#statisticsTable').append(string);
 }

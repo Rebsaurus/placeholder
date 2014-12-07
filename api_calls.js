@@ -2,11 +2,10 @@
 // husk at alle chromeprosesser må avsluttes  
 
 /**
-*Gets a json object containing all forms and puts them in a html select
+* Gets a JSON object containing all forms 
+* Sorts them alphabetically
+* Puts them in a HTML select located in index
 */
-
-//var facilities;
-
 $(function getForms (){
 	//url = window.location + "/api/programs.json;
 	url2 = "http://inf5750-1.uio.no/api/programs.json";
@@ -46,7 +45,9 @@ $(function getForms (){
 });
 
 /**
-*Gets a json object containing all facilities that have access to the chosen form and puts them in a html select
+* Sets a JSON object containing all facilities that have access to the chosen
+* sorts them alphabetically
+* Puts them in a HTML select located in index
 */
 function getFacilities (){
 

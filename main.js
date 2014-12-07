@@ -50,7 +50,9 @@ $(function howManyAreChecked() {
 });
 
 /**
-*Displays table when form and facility have been selected  
+* Displays table when form and facility have been selected  
+* Is called by 
+* Calls getProgramStagesID()
 */
 function setSelected(event, ui){
   var selectedObj = ui.item; 
@@ -80,18 +82,25 @@ function showInfo(){
 }
 
 /**
-*Shows the select options
+* Shows the select options
 */
 function selectNew(){
   document.getElementById("selector").className = "showOnPhone";
   document.getElementById("smallScreen").style.display = "none";
 }
 
+/**
+* Prints the IDs of the forms and facilities
+*/
 function printIDs(){
   console.log("Form ID: " + formID);
   console.log("Facility ID: " + facilityID);
 }
 
+/**
+* Pushes the ID and checked-status to checkboxArray
+* Calls makeObjet() with checkboxArray
+*/
 function createData(){
   var checkBoxArray = [];
   $('#qaTable').find('input[type="checkbox"]').each(function () {
@@ -115,6 +124,25 @@ function createData(){
   }
   makeObject(checkBoxArray);
 }
+
+/**
+* Waits for fetFacilities to load
+* Is called onChange() by div #program in index.html
+*/
+function waitForFacilities(value){
+  $.when(getFacilities())
+  .done(function(){
+
+  })
+  .fail(function(){
+
+  });
+}
+
+/**
+* Filters suggestions when user types
+* Is called onKeyPress() by div #facility in index.html
+*/
 
 function textFilter(value){
   $(function(){

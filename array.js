@@ -6,6 +6,9 @@ var forms = [];
 var formTotalRows;
 var formCompleteRows;
 
+/**
+* ?
+*/
 function makeObject(checkboxArray){
 	//clearSystemSettings(); return;
 	console.log("MAKE OBJECT");
@@ -21,6 +24,9 @@ function makeObject(checkboxArray){
 	});
 }
 
+/**
+*
+*/
 function makeObjectA(checkboxArray){
 	var clinic = {};
 	var form = {}
@@ -173,6 +179,9 @@ function containsForm(){
 	return false;
 }
 
+/**
+*
+*/
 function postObjects(dataJSON){
 	console.log("POST OBJECTS")
 	$.ajax({
@@ -185,6 +194,9 @@ function postObjects(dataJSON){
 	});
 }
 
+/**
+*
+*/
 function getObjects(){
 	console.log("GET OBJECTS");
 

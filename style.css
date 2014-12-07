@@ -94,7 +94,7 @@ body {
 }
 /* -END- responsive design */
 
-table, th, td {
+#qaTable table, th, td {
     /*border: 1px solid;*/
     /*border: dotted 1px black; */
 
@@ -105,11 +105,11 @@ table, th, td {
 
 }
 
-table tr:nth-child(even) td{
-		background-color: #7aa6d3;
+#qaTable table tr:nth-child(even) td{
+	background-color: #7aa6d3;
 }
 
-table th{
+#qaTable table th{
 	background-color: #1d5288;
 	color: #FFF;
 }
@@ -119,7 +119,6 @@ table th{
 	float: right;
 	position: relative;
 }
-
 /*
 #banner{
 	width: 99%;
@@ -127,6 +126,17 @@ table th{
 	padding: 3px 7px 3px 7px;
 	color: #FFF;
 }*/
+
+#statisticsTable table {
+	display: inline-block;
+    border-collapse: collapse;
+    margin-top: 2%;
+}
+
+#statisticsTable table th{
+	background-color: #1d5288;
+	color: #FFF;
+}
 
 /* link styles */
 a:link{

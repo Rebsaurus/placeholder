@@ -4,6 +4,9 @@
 /**
 *Gets a json object containing all forms and puts them in a html select
 */
+
+//var facilities;
+
 $(function getForms (){
 	//url = window.location + "/api/programs.json;
 	url2 = "http://inf5750-1.uio.no/api/programs.json";
@@ -60,7 +63,7 @@ function getFacilities (){
 			/**
 			* Places all clinics in an associative array
 			*/
-			var facilities = [];
+			facilities = [];
 			for(var i = 0; i < data.length; i++) {
 				if(i == 0){
 					facilities.push({
@@ -78,20 +81,22 @@ function getFacilities (){
 			/**
 			* Sorts said array
 			*/ 
-			var sorted = facilities.sort(function(a,b){
+			sorted = facilities.sort(function(a,b){
 				return a.name.localeCompare(b.name);
 			});
+			console.log("ready");
 
 			/**
 			* Appends and print to <select>
-			*/ 
+			*
 			for(var key in facilities){
 				$('#facility').append('<option value="' + facilities[key].id + '">' + facilities[key].name +  '</option>');
 			}
+			*/
+			
 		}
 	});
 }
-
 
 
 

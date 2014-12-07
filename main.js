@@ -7,9 +7,8 @@ var facilityID;
 var facilityName;
 var rowCount;
 var headerCount;
-<<<<<<< HEAD
 var completeRows;
-=======
+
 var facilities;
 var sorted;
 
@@ -17,7 +16,7 @@ var sorted;
 String.prototype.startsWith = function(str){
   return this.indexOf(str) == 0;
 }
->>>>>>> rebeks_apiKall
+
 
 function setFormID(value){
   formID = value;

@@ -27,7 +27,7 @@ function createTable(programStagesID){
 				items[i] = data[i].dataElement;
 			}
 		}
-		console.log(items);
+		//console.log(items);
 
 		//set med ting som journal, dhis, registry osv..
 		var info = {};
@@ -41,8 +41,8 @@ function createTable(programStagesID){
 			info[splittet[0]] = true;
 			sjekk[splittet[1]] = true;
 		}
-		console.log(info);
-		console.log(sjekk);
+		//console.log(info);
+		//console.log(sjekk);
 
 		populateTable(info, sjekk);
 		tableExists = true;

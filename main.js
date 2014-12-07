@@ -16,7 +16,7 @@ function setFacilityID(value){
   facilityID = value;
 }
 
-$(function howManyAreChecked() {
+/*$(function howManyAreChecked() {
   var checkedBoxes = 0;
 
   $("#tabellSubmit").click(function howMany() {
@@ -34,7 +34,7 @@ $(function howManyAreChecked() {
     checkedBoxes = 0;
     createData();
   });
-});
+});*/
 
 /**
 *Displays table when form and facility have been selected  
@@ -85,9 +85,5 @@ function createData(){
     //console.log(checkBoxArray[key]);
   }
   makeObject(checkBoxArray);
-}
-
-function sendData(){
-
 }
 

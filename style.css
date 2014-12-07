@@ -111,6 +111,32 @@ table th{
 	color: #FFF;
 }
 
+#toStatistics{
+	float: right;
+	position: relative;
+}
+
+#table{
+	position: absolute;
+}
+
+a:link{
+	color: #787878;
+}
+
+a:visited{
+	color: #606060;
+}
+
+a:active{
+	color: #276ab0;
+
+}
+
+p{
+	color: 787878;
+}
+
 
 input[type=text]{
 	text-align: center;

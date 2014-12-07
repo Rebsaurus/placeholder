@@ -28,10 +28,10 @@ $(function getForms (){
 					});					
 				}
 			}
-		
+			
 			var sorted = forms.sort(function(a,b){
 				//console.log(forms[key]);
-    			return a.name.localeCompare(b.name);
+				return a.name.localeCompare(b.name);
 			});
 
 
@@ -74,12 +74,12 @@ function getFacilities (){
 					});					
 				}
 			}
-		
+			
 			/**
 			* Sorts said array
 			*/ 
 			var sorted = facilities.sort(function(a,b){
-    			return a.name.localeCompare(b.name);
+				return a.name.localeCompare(b.name);
 			});
 
 			/**

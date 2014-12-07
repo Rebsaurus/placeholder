@@ -67,17 +67,17 @@ function getFacilities (){
 			*/
 			facilities = [];
 			for(var i = 0; i < data.length; i++) {
-				if(i == 0){
+				/*if(i == 0){
 					facilities.push({
 						id: "index",
 						name: " <---- Choose a facility ---->"
 					});
-				} else {
+				} else {*/
 					facilities.push({
 						id: data[i].id,
 						name: data[i].name
 					});					
-				}
+				//}
 			}
 			
 			/**

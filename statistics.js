@@ -15,7 +15,7 @@ function percentCalc() {
 
 			string = string + '<tr style="background-color:#7aa6d3"><td style="width:50%" class="alignleft">Form</td><td>Number of submits</td><td>Data Consistency</td></tr>';
 			//gar gjennom alle klinikkene sine forms
-			string = string + '<tr style="background-color:#7aa6d3"><td style="width:50%">Form</td><td>Number of submits</td><td>Data Consistency</td></tr>';
+			//string = string + '<tr style="background-color:#7aa6d3"><td style="width:50%">Form</td><td>Number of submits</td><td>Data Consistency</td></tr>';
 			// iterates through each clinic's form
 
 			for (var key2 in altArray[key].clinic.forms) {

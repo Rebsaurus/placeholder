@@ -15,6 +15,15 @@ function percentCalc() {
 				var completeR = altArray[key].clinic.forms[key2].formCompleteRows;
 				
 				string = string + '<tr><td>' + altArray[key].clinic.forms[key2].name + '</td><td>' + (completeR/totalR*100).toFixed(2) + '%</td></tr>';
+				var rCount = altArray[key].clinic.forms[key2].rows;
+				var hCount = altArray[key].clinic.forms[key2].coloumns;
+				//gar gjennom hver form sine submits
+				for (var key3 in altArray[key].clinic.forms[key2]) {
+					//gar gjennom alle submitene i submits
+					for (var key4 in altArray[key].clinic.forms[key2].submits[key3]) {
+						console.log(altArray[key].clinic.forms[key2].submits[key3])
+					}
+				}
 
 			}
 			string = string + '</tbody></table>';

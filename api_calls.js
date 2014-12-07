@@ -49,7 +49,8 @@ $(function getForms (){
 *Gets a json object containing all facilities that have access to the chosen form and puts them in a html select
 */
 function getFacilities (){
-	document.getElementById("selectFacilityDiv").style.display = "block";
+
+	////document.getElementById("selectFacilityDiv").style.display = "block";
 	//console.log(formID);
 	//url = window.location + "/api/programs/" + formID + ".json";
 	mockURL = "http://inf5750-1.uio.no/api/programs/" + formID + ".json";
@@ -84,7 +85,11 @@ function getFacilities (){
 			sorted = facilities.sort(function(a,b){
 				return a.name.localeCompare(b.name);
 			});
+			for (var i in sorted){
+				allClinicNames[i] = sorted[i].name;
+			}
 			console.log("ready");
+			document.getElementById("selectFacilityDiv").style.display = "block";
 
 			/**
 			* Appends and print to <select>

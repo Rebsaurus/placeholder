@@ -1,5 +1,6 @@
 //POST EXAMPLE http://inf5750-1.uio.no/api/systemSettings/phArray
 //GET EXAMPLE http://inf5750-1.uio.no/api/systemSettings?key=ph-test
+//alert("caller is " + arguments.callee.caller.toString()); // shows where a methods where called from
 
 var formID;
 var formName;
@@ -8,6 +9,7 @@ var facilityName;
 var rowCount;
 var headerCount;
 var completeRows;
+var allClinicNames = []; 
 
 var facilities;
 var sorted;
@@ -50,7 +52,10 @@ $(function howManyAreChecked() {
 /**
 *Displays table when form and facility have been selected  
 */
-function showInfo(){
+function showInfo(event, ui){
+  var facilityName = ui.item;
+  var selectedObj = ui.item;              
+  alert(selectedObj.value);
   document.getElementById("table").style.display = "block";
   document.getElementById("selector").className = "hideOnPhone";
   document.getElementById("smallScreen").style.display = "block";
@@ -98,41 +103,18 @@ function createData(){
   makeObject(checkBoxArray);
 }
 
-function waitForFacilities(value){
-  $.when(getFacilities())
-  .done(function(){
-
-  })
-  .fail(function(){
-
-  });
-}
-
 function textFilter(value){
-  var dfdText = new jQuery.Deferred();
-
-  var s = value;
-  sorted = $.grep(sorted, function(auto){
-    return auto.name.indexOf(s) ==0;
-
-    //console.log(n.name.indexOf(s));
-    /*if(n.name.indexOf(s) > -1){
-      
-      console.log(sorted.length);
-    }
-    //return(n.name.indexOf(s));*/
-  });
-  
-  //console.log(sorted);
   $(function(){
     $("#facility").autocomplete({
-      source: sorted.name
+      source: allClinicNames,
+      select: function (event, ui) {
+            showInfo(event, ui)
+        }
     });
   });
-
-  dfdText.resolve();
-  
-
-  //$("#facility").autocomplete( { source: facilities });
-  return dfdText.promise();
 }
+
+function mongo(data, ui){
+    
+}
+  

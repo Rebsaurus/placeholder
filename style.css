@@ -105,6 +105,7 @@ body {
 
 }
 
+/* Set styles for tables in index.html*/
 #qaTable table tr:nth-child(even) td{
 	background-color: #7aa6d3;
 }
@@ -133,6 +134,7 @@ body {
 	color: #FFF;
 }*/
 
+/* Set styles for tables in statistics.html*/
 #statisticsTable table {
 	display: inline-block;
     border-collapse: collapse;

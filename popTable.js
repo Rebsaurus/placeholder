@@ -2,7 +2,6 @@
 /**
 *Gets programStages' ID for the selected form
 */
-
 function getProgramStagesID(){
 	//url = window.location + "/api/programs/" + formID + ".json";
 	var mockURL = "http://inf5750-1.uio.no/api/programs/" + formID + ".json";
@@ -14,6 +13,11 @@ function getProgramStagesID(){
 	});
 }
 
+/**
+* Extract the names the names for both the x and y axis from JSON
+* Calls populateTable
+* Is called by 
+*/
 function createTable(programStagesID){
 	clearTable();
 	var url = "http://inf5750-1.uio.no/api/programStages/" + programStagesID + ".json";
@@ -26,14 +30,14 @@ function createTable(programStagesID){
 			document.getElementById("noJSON").style.display = "block";
 		} else{
 			for(var i = 0; i < data.length; i++) {
-				//lagre i vanlig array
+				//saves to array
 				items[i] = data[i].dataElement;
 			}
 		}
 
-		//set med ting som journal, dhis, registry osv..
+		//set containing the coloums. journal, dhis, registry etc.
 		var info = {};
-		//set med sporsmål som age, sex, FUD osv...
+		//set containing the rows. age, sex, FUD etc...
 		var sjekk = {};
 
 
@@ -49,6 +53,11 @@ function createTable(programStagesID){
 	});
 }
 
+/**
+* Creates HTML table and populates 
+* Is called by createTable()
+* Saves amount of rows and coloums in rowCount and headCount
+*/
 function populateTable(info, sjekk){
 
 	var antallInfo = 0;
@@ -92,7 +101,8 @@ function populateTable(info, sjekk){
 }
 
 /**
-*Clears qaTable, preventing multiple tables
+* Clears qaTable, preventing multiple tables
+* Is called by 
 */
 function clearTable(){
 	$("#qaTable").html(""); 

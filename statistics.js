@@ -1,14 +1,20 @@
+/**
+* Calculates the consitency in data of each clinic for each form
+* Creates and populates all tables to div #statistics in statistics.html
+* Is shown in statistics.htms
+* Called by body onLoad in statistics.html
+*/
 function percentCalc() {
 	mockURL = "http://inf5750-1.uio.no/api/systemSettings/phArray";
 
 	$.getJSON(mockURL, function(data){
 		var altArray = data;
-		//gar gjennom array[0], som er klinikkobjekter
+		// iterates through array[0] which is clinic-objects
 		for (var key in altArray) {
 			string = '<table border="1" style="width:60%"><tr><tr><th colspan="3">' + altArray[key].clinic.name + '</tr></thead><tbody>';
 
 			string = string + '<tr style="background-color:#7aa6d3"><td style="width:50%">Form</td><td>Number of submits</td><td>Data Consistency</td></tr>';
-			//gar gjennom alle klinikkene sine forms
+			// iterates through each clinic's form
 			for (var key2 in altArray[key].clinic.forms) {
 				
 				var totalR = altArray[key].clinic.forms[key2].formTotalRows;
@@ -17,9 +23,9 @@ function percentCalc() {
 				string = string + '<tr><td>' + altArray[key].clinic.forms[key2].name + '</td><td>' + altArray[key].clinic.forms[key2].submitCount + '</td><td>' + (completeR/totalR*100).toFixed(2) + '%</td></tr>';
 				var rCount = altArray[key].clinic.forms[key2].rows;
 				var hCount = altArray[key].clinic.forms[key2].coloumns;
-				//gar gjennom hver form sine submits
+				// iterates through each form's submits
 				for (var key3 in altArray[key].clinic.forms[key2]) {
-					//gar gjennom alle submitene i submits
+					//iterates all submits' submits
 					for (var key4 in altArray[key].clinic.forms[key2].submits[key3]) {
 						console.log(altArray[key].clinic.forms[key2].submits[key3])
 					}

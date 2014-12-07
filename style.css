@@ -139,6 +139,10 @@ body {
     margin-top: 2%;
 }
 
+.alignleft { 
+	text-align: left; 
+}
+
 #statisticsTable table th{
 	background-color: #1d5288;
 	color: #FFF;

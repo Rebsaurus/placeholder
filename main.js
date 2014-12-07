@@ -52,16 +52,29 @@ $(function howManyAreChecked() {
 /**
 *Displays table when form and facility have been selected  
 */
-function showInfo(event, ui){
-  var facilityName = ui.item;
-  var selectedObj = ui.item;              
-  alert(selectedObj.value);
+function setSelected(event, ui){
+  var selectedObj = ui.item; 
+  facilityName = selectedObj.value;
+  for (i in sorted){
+    if (sorted[i].name === selectedObj.value){
+      console.log(sorted[i]);
+      //$("#selectFacilityDiv option:selected").value = sorted[i];
+      setFacilityID(sorted[i].id);
+      showInfo();
+    }
+  }
+
+
+  
+  
+  //showInfo();
+}
+function showInfo(){         
   document.getElementById("table").style.display = "block";
   document.getElementById("selector").className = "hideOnPhone";
   document.getElementById("smallScreen").style.display = "block";
 
   formName = $( "#selectFormDiv option:selected" ).text();
-  facilityName = $( "#selectFacilityDiv option:selected" ).text();
   document.getElementById("selectedFormAndClinic").innerHTML = formName + ", " + facilityName;
   getProgramStagesID();
 }
@@ -108,13 +121,9 @@ function textFilter(value){
     $("#facility").autocomplete({
       source: allClinicNames,
       select: function (event, ui) {
-            showInfo(event, ui)
+            setSelected(event, ui)
         }
     });
   });
-}
-
-function mongo(data, ui){
-    
 }
   

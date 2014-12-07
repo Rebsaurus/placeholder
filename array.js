@@ -2,12 +2,15 @@
 var phObject = {};
 var phArray = [];
 var submits = [];
-var forms = []
+var forms = [];
+var formTotalRows;
+var formCompleteRows;
 
 function makeObject(checkboxArray){
 	//clearSystemSettings(); return;
 	console.log("MAKE OBJECT");
-
+	formTotalRows = 0;
+	formCompleteRows = 0;
 	$.when(getObjects())
 	.done(function() {
 		console.log( 'I fire once completed!' );
@@ -23,9 +26,14 @@ function makeObjectA(checkboxArray){
 	var form = {}
 	var submit = [];
 	var counter = 0;
+	//formTotalRows = formTotalRows + rowCount;
+	console.log(formTotalRows + "ds");
+	//formCompleteRows = formCompleteRows + completeRows;
 
 
 	submits.push({
+		completeRows: completeRows,
+		totalRows: rowCount,
 		submit: checkboxArray
 	});
 
@@ -89,6 +97,8 @@ function makeObjectA(checkboxArray){
 
 		submits = []
 		submits.push({
+			completeRows: completeRows,
+			totalRows: rowCount,
 			submit: checkboxArray
 		});
 
@@ -98,8 +108,9 @@ function makeObjectA(checkboxArray){
 				phArray[key].clinic.forms.push({
 					name: formName,
 					fID: formID,
-					rows: rowCount,
-					coloums: headerCount,
+					formCompleteRows: completeRows,
+					formTotalRows: rowCount,
+					submitCount: 1,
 					submits: submits
 				});
 				postObjects(phArray);
@@ -114,8 +125,9 @@ function makeObjectA(checkboxArray){
 		forms.push({
 			name: formName,
 			fID: formID,
-			rows: rowCount,
-			coloums: headerCount,
+			formCompleteRows: completeRows,
+			formTotalRows: rowCount,
+			submitCount: 1,
 			submits: submits
 		});
 		console.log(forms);
@@ -135,7 +147,7 @@ function makeObjectA(checkboxArray){
 		postObjects(phArray);
 	}
 }
-
+//Not in use atm
 function containsClinic() {
 	for (var key in phArray){
 		if (phArray[key].clinic.cID === facilityID) {
@@ -149,6 +161,9 @@ function containsForm(){
 	for (var key in phArray){
 		for (var key2 in phArray[key].clinic.forms){
 			if (phArray[key].clinic.cID === facilityID && phArray[key].clinic.forms[key2].fID === formID){
+				phArray[key].clinic.forms[key2].formCompleteRows = formCompleteRows + completeRows;
+				phArray[key].clinic.forms[key2].formTotalRows = formTotalRows + rowCount;
+				phArray[key].clinic.forms[key2].submitCount++;
 				phArray[key].clinic.forms[key2].submits = submits;
 				console.log("CONTEINSTRUU"); 
 				return true;
@@ -186,6 +201,8 @@ function getObjects(){
 			}
 			for (var key2 in phArray[key].clinic.forms){
 				if (phArray[key].clinic.cID === facilityID && phArray[key].clinic.forms[key2].fID === formID){
+					formCompleteRows = phArray[key].clinic.forms[key2].formCompleteRows;
+					formTotalRows = phArray[key].clinic.forms[key2].formTotalRows;
 					submits = phArray[key].clinic.forms[key2].submits;
 					console.log(submits);
 				}

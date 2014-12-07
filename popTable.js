@@ -2,6 +2,7 @@
 /**
 *Gets programStages' ID for the selected form
 */
+
 function getProgramStagesID(){
 	//url = window.location + "/api/programs/" + formID + ".json";
 	var mockURL = "http://inf5750-1.uio.no/api/programs/" + formID + ".json";
@@ -87,6 +88,9 @@ function populateTable(info, sjekk){
 	string = string + '</table></form>';
 
 	$('#qaTable').append(string);
+
+	rowCount = antallSjekk;
+	headerCount = antallInfo;
 }
 
 /**

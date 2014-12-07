@@ -16,7 +16,8 @@ function setFacilityID(value){
   facilityID = value;
 }
 
-/*$(function howManyAreChecked() {
+/*
+$(function howManyAreChecked() {
   var checkedBoxes = 0;
 
   $("#tabellSubmit").click(function howMany() {

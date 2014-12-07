@@ -98,6 +98,8 @@ function makeObjectA(checkboxArray){
 				phArray[key].clinic.forms.push({
 					name: formName,
 					fID: formID,
+					rows: rowCount,
+					coloums: headerCount,
 					submits: submits
 				});
 				postObjects(phArray);
@@ -112,6 +114,8 @@ function makeObjectA(checkboxArray){
 		forms.push({
 			name: formName,
 			fID: formID,
+			rows: rowCount,
+			coloums: headerCount,
 			submits: submits
 		});
 		console.log(forms);

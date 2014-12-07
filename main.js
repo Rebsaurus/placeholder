@@ -7,6 +7,13 @@ var facilityID;
 var facilityName;
 var rowCount;
 var headerCount;
+var facilities;
+var sorted;
+
+
+String.prototype.startsWith = function(str){
+  return this.indexOf(str) == 0;
+}
 
 function setFormID(value){
   formID = value;
@@ -88,3 +95,41 @@ function createData(){
   makeObject(checkBoxArray);
 }
 
+function waitForFacilities(value){
+  $.when(getFacilities())
+  .done(function(){
+
+  })
+  .fail(function(){
+
+  });
+}
+
+function textFilter(value){
+  var dfdText = new jQuery.Deferred();
+
+  var s = value;
+  sorted = $.grep(sorted, function(auto){
+    return auto.name.indexOf(s) ==0;
+
+    //console.log(n.name.indexOf(s));
+    /*if(n.name.indexOf(s) > -1){
+      
+      console.log(sorted.length);
+    }
+    //return(n.name.indexOf(s));*/
+  });
+  
+  //console.log(sorted);
+  $(function(){
+    $("#facility").autocomplete({
+      source: sorted.name
+    });
+  });
+
+  dfdText.resolve();
+  
+
+  //$("#facility").autocomplete( { source: facilities });
+  return dfdText.promise();
+}

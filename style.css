@@ -120,6 +120,10 @@ table th{
 	position: relative;
 }
 
+#toIndex{
+	float: right;
+	position: relative;
+}
 /*
 #banner{
 	width: 99%;

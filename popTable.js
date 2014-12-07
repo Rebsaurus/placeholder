@@ -97,13 +97,3 @@ function populateTable(info, sjekk){
 function clearTable(){
 	$("#qaTable").html(""); 
 }
-
-
-/**
-* Creates statisticsTable
-*/
-
-function createStatisticsTable(){
-	var string = "LOL";
-	$('#statisticsTable').append(string);
-}

@@ -7,17 +7,45 @@ var formTotalRows;
 var formCompleteRows;
 
 /**
-* ?
+* Pushes the ID and checked-status to checkboxArray
+* Calls waitForMakeObjet() with checkboxArray
+* Is called by onClick submit-button in index.html
 */
-function makeObject(checkboxArray){
+function createData(){
+  var checkBoxArray = [];
+  $('#qaTable').find('input[type="checkbox"]').each(function () {
+    var checkBox = this;
+
+    if(checkBox.checked == true){
+      checkBoxArray.push({
+        id: checkBox.id,
+        checked: true
+      })
+
+    }else{
+      checkBoxArray.push({
+        id: checkBox.id,
+        checked: false
+      })
+    }
+  });
+
+  waitForMakeObjects(checkBoxArray);
+}
+
+/**
+* Waits for getObjects to resolve jQuery.Deferrence
+* Is called by createData
+* Calls makeObject, sends checkboxArray
+*/
+function waitForGetObjects(checkboxArray){
 	//clearSystemSettings(); return;
 	console.log("MAKE OBJECT");
 	formTotalRows = 0;
 	formCompleteRows = 0;
 	$.when(getObjects())
 	.done(function() {
-		console.log( 'I fire once completed!' );
-		makeObjectA(checkboxArray);
+		makeObject(checkboxArray);
 	})
 	.fail(function() {
 		console.log( 'I fire if request failed.' );
@@ -25,17 +53,52 @@ function makeObject(checkboxArray){
 }
 
 /**
-*
+* Creates jQuery.Deferred so the program has to wait for this method before it can continue
+* Gets JSON-object from /api/systemSettings/phArray
+* Places the objects inside phArray
+* Updates variables formCompleteRows, formTotalRows and number of submits within each form
+* Resolves jQuery.Deferred when for-loop is done.
 */
-function makeObjectA(checkboxArray){
+function getObjects(){
+	console.log("GET OBJECTS");
+
+	var dfd = new jQuery.Deferred();
+
+	mockURL = "http://inf5750-1.uio.no/api/systemSettings/phArray";
+
+	$.getJSON(mockURL, function(data){
+		phArray = data;
+		console.log("PH: " + phArray.length);
+		for (var key in phArray){
+			if(phArray[key].clinic.cID === facilityID){
+				forms = phArray[key].clinic.forms;
+			}
+			for (var key2 in phArray[key].clinic.forms){
+				if (phArray[key].clinic.cID === facilityID && phArray[key].clinic.forms[key2].fID === formID){
+					formCompleteRows = phArray[key].clinic.forms[key2].formCompleteRows;
+					formTotalRows = phArray[key].clinic.forms[key2].formTotalRows;
+					submits = phArray[key].clinic.forms[key2].submits;
+					console.log(submits);
+				}
+			}
+		}
+		dfd.resolve();
+	});
+	return dfd.promise();
+}
+
+/**
+* Is called by waitForGetObjects
+* Finds out what already exist in phArray
+* Updates clinic, form, submits in phArray
+* i.e. updates variables that are to be posted to /api/systemSettings/phArray
+* Calls postObjects
+*/
+function makeObject(checkboxArray){
 	var clinic = {};
 	var form = {}
 	var submit = [];
 	var counter = 0;
-	//formTotalRows = formTotalRows + rowCount;
-	console.log(formTotalRows + "ds");
-	//formCompleteRows = formCompleteRows + completeRows;
-
 
 	submits.push({
 		completeRows: completeRows,
@@ -43,64 +106,11 @@ function makeObjectA(checkboxArray){
 		submit: checkboxArray
 	});
 
-/*form = {
-	name: formName,
-	fID: formID,
-	submits: submits
-}*/
-
-
-
-
-/*clinic = {
-	name: facilityName,
-	cID: facilityID,
-	forms:{ 
-		name: formName,
-		fID: formID,
-		submits: submits
-	}
-}*/
-
- 	//IF phObject is empty, this adds the first element/clinic
- 	/*if (phArray.length === 0){
- 		console.log("ARRAYLENGTH " + phArray.length)
- 		console.log("TOM" + phArray);
- 		phArray.push({
- 			clinic:clinic
- 		});
- 		postObjects(phArray);
- 		console.log("ARRAYLENGTH " + phArray.length)
- 	}else{*/
- 		/*if (containsClinic() === true){
- 			if(containsForm() === true){
-				postObjects(phArray);
-				return;
-			}
-			if(!containsForm() || !containsClinic()){
-				forms.push({
-						name: formName,
-						fID: formID,
-						submits: submits
-					});
-				phArray.clinic.forms = forms;
-				postObjects(phArray);
-			}
-		}else{
-			phArray.push({
-				clinic:clinic
-			});
-		}
-		postObjects(phArray);*/
-	//}
-
+	// If the clinic already has this form
 	if(containsForm() === true){
 		postObjects(phArray);
 	}else{
-		console.log("FORMPUSH");
-		console.log(submits);
-		console.log(forms);
-
+		// If the clinic contains no forms
 		submits = []
 		submits.push({
 			completeRows: completeRows,
@@ -109,8 +119,10 @@ function makeObjectA(checkboxArray){
 		});
 
 		for(key in phArray){
-			console.log(phArray[key].clinic.cID);
+
+			// If the clinic does not contain this spesific form. Returns true
 			if(phArray[key].clinic.cID === facilityID){
+				
 				phArray[key].clinic.forms.push({
 					name: formName,
 					fID: formID,
@@ -124,9 +136,9 @@ function makeObjectA(checkboxArray){
 			}
 		}
 		
-		console.log("JALLABEANS");
+		// phArray does not contain clinic
 		forms = [];
-		//submits.submit = checkboxArray;
+
 		console.log(forms);
 		forms.push({
 			name: formName,
@@ -143,26 +155,21 @@ function makeObjectA(checkboxArray){
 			cID: facilityID,
 			forms: forms
 		}
-		console.log(clinic.forms + " noe mongo");
 		
 		phArray.push({
 			clinic: clinic
 		});
 
-		//phArray.clinic.forms = forms;
 		postObjects(phArray);
 	}
 }
-//Not in use atm
-function containsClinic() {
-	for (var key in phArray){
-		if (phArray[key].clinic.cID === facilityID) {
-			return true;
-		}
-	}
-	return false;
-}
 
+/**
+* Adds submit's values to form
+* Updates form
+* Returns true or false
+* Is called by ifs in makeObject
+*/
 function containsForm(){
 	for (var key in phArray){
 		for (var key2 in phArray[key].clinic.forms){
@@ -180,7 +187,7 @@ function containsForm(){
 }
 
 /**
-*
+* Posts strigified JSON-object to URL /api/systemSettings/phArray
 */
 function postObjects(dataJSON){
 	console.log("POST OBJECTS")
@@ -195,36 +202,10 @@ function postObjects(dataJSON){
 }
 
 /**
-*
+* WARNING
+* This method clears all data in /api/systemSettings/phArray if called
+* Advised not to call this method
 */
-function getObjects(){
-	console.log("GET OBJECTS");
-
-	var dfd = new jQuery.Deferred();
-
-	mockURL = "http://inf5750-1.uio.no/api/systemSettings/phArray";
-
-	$.getJSON(mockURL, function(data){
-		phArray = data;
-		console.log("PH: " +phArray.length);
-		for (var key in phArray){
-			if(phArray[key].clinic.cID === facilityID){
-				forms = phArray[key].clinic.forms;
-			}
-			for (var key2 in phArray[key].clinic.forms){
-				if (phArray[key].clinic.cID === facilityID && phArray[key].clinic.forms[key2].fID === formID){
-					formCompleteRows = phArray[key].clinic.forms[key2].formCompleteRows;
-					formTotalRows = phArray[key].clinic.forms[key2].formTotalRows;
-					submits = phArray[key].clinic.forms[key2].submits;
-					console.log(submits);
-				}
-			}
-		}
-		dfd.resolve("YAY");
-	});
-	return dfd.promise();
-}
-
 function clearSystemSettings(){
 	var clear = [];
 	$.ajax({
@@ -237,23 +218,3 @@ function clearSystemSettings(){
 	});
 	console.log("Cleared systemSettings/phArray");
 }
-
-/*function containsClinicObject(){
-	for (var key in phObject) {
-		if (!phObject.hasOwnProperty(key)) continue;
-		if (phObject[key] === facilityID) {
-			return true;
-		}
-	}
-	return false;
-}
-
-function containsFormObject(){
-	for (var key in phObject) {
-		if (!phObject.hasOwnProperty(key)) continue;
-		if (phObject[key] === formID) {
-			return true;
-		}
-	}
-	return false;
-}*/

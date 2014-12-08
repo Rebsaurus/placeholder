@@ -130,9 +130,10 @@ body {
 #banner{
 	width: 99%;
 	background-color: #1d5288;
-	padding: 3px 7px 3px 7px;
+	padding: 10px 10px 10px 10px;
 	color: #FFF;
-}*/
+}
+*/
 
 /* Set styles for tables in statistics.html*/
 #statisticsTable table {

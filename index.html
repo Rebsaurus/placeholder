@@ -37,18 +37,12 @@
     <div id="selectFormDiv" >
       <br><br>
       <select id="program" onChange="setFormID(value); getFacilities()"></select>
-      <!--<input id="programTxt" type="text" onChange="showForm()">-->
     </div>
 
     <div id="noJSON" style="display:none">
       <h3>No forms found</h3>
     </div>
-    <!--
-    <div id="selectFacilityDiv" style="display:none">
-      <br><br><br>
-      <select id="facility" onChange="setFacilityID(value); showInfo()"> </select>
-    </div>
-    -->
+
     <div id="selectFacilityDiv" style="display:none" class="ui-widget">
       <br><br><br>
       <input id="facility" type="text" onKeyPress="textFilter(value)" data-role="autocomplete" data-bind="sorted">
@@ -66,7 +60,8 @@
       <br><br><br>
     </div>
     <br>
-  <input type ="submit" class="submitButton" id="tabellSubmit" value="Submit" onClick="createData()";>
+
+  <input type ="submit" class="submitButton" id="tabellSubmit" value="Submit" onClick="createData()";> <!-- createData() is locaed in array.js -->
   </div>
 
 </body>

@@ -52,25 +52,22 @@ $(function howManyAreChecked() {
 /**
 * Displays table when form and facility have been selected  
 * Is called by 
-* Calls getProgramStagesID()
+* Calls getProgramStagesID() and showInfo()
 */
 function setSelected(event, ui){
   var selectedObj = ui.item; 
   facilityName = selectedObj.value;
   for (i in sorted){
     if (sorted[i].name === selectedObj.value){
-      console.log(sorted[i]);
-      //$("#selectFacilityDiv option:selected").value = sorted[i];
       setFacilityID(sorted[i].id);
       showInfo();
     }
   }
-
-
-  
-  
-  //showInfo();
 }
+
+/**
+* Changes display properties of varios divs
+*/
 function showInfo(){         
   document.getElementById("table").style.display = "block";
   document.getElementById("selector").className = "hideOnPhone";
@@ -82,7 +79,7 @@ function showInfo(){
 }
 
 /**
-* Shows the select options
+* Changes display properties of varios divs
 */
 function selectNew(){
   document.getElementById("selector").className = "showOnPhone";
@@ -90,60 +87,9 @@ function selectNew(){
 }
 
 /**
-* Prints the IDs of the forms and facilities
-*/
-function printIDs(){
-  console.log("Form ID: " + formID);
-  console.log("Facility ID: " + facilityID);
-}
-
-/**
-* Pushes the ID and checked-status to checkboxArray
-* Calls makeObjet() with checkboxArray
-*/
-function createData(){
-  var checkBoxArray = [];
-  $('#qaTable').find('input[type="checkbox"]').each(function () {
-    var checkBox = this;
-    
-    //$.inArray(value, array)// returns index of a value in an index
-    if(checkBox.checked == true){
-      checkBoxArray.push({
-        id: checkBox.id,
-        checked: true
-      })
-    }else{
-      checkBoxArray.push({
-        id: checkBox.id,
-        checked: false
-      })
-    }
-  });
-  for(var key in checkBoxArray){
-    //console.log(checkBoxArray[key]);
-  }
-  makeObject(checkBoxArray);
-}
-
-/**
-* Waits for fetFacilities to load
-* Is called onChange() by div #program in index.html
-*/
-function waitForFacilities(value){
-  $.when(getFacilities())
-  .done(function(){
-
-  })
-  .fail(function(){
-
-  });
-}
-
-/**
 * Filters suggestions when user types
 * Is called onKeyPress() by div #facility in index.html
 */
-
 function textFilter(value){
   $(function(){
     $("#facility").autocomplete({
@@ -155,3 +101,12 @@ function textFilter(value){
   });
 }
   
+/**
+* Prints the IDs of the forms and facilities
+* Is not called by anything right now.
+* Can be used to debug
+*/
+function printIDs(){
+  console.log("Form ID: " + formID);
+  console.log("Facility ID: " + facilityID);
+}

@@ -294,6 +294,7 @@ function postObjects(dataJSON){
 		}
 	});
 	clearBoxes();
+	successfullSubmit();
 }
 
 /**
@@ -312,4 +313,20 @@ function clearSystemSettings(){
 		}
 	});
 	console.log("Cleared systemSettings/phArray");
+}
+
+function successfullSubmit(){
+	$('#successfullSubmit').html("Submit successfull");
+        //define text
+        var text = '....';
+        //text is split up to letters
+        $.each(text.split(''), function(i, letter){
+            //we add 100*i ms delay to each letter 
+            setTimeout(function(){
+                //we add the letter to the container
+                $('#container').html(letter + $('#container').html() + letter);
+            }, i*300);
+        });
+        $("p").fadeOut(2000);
+	});
 }

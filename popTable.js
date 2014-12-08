@@ -5,7 +5,7 @@
 * Calls createTable
 */
 function getProgramStagesID(){
-	url = window.location + "/api/programs/" + formID + ".json";
+	url = "http://" + window.location.host + "/api/programs/" + formID + ".json";
 	//var mockURL = "http://inf5750-1.uio.no/api/programs/" + formID + ".json";
 	var programStagesID;
 	$.getJSON(url, function (data){
@@ -24,7 +24,7 @@ function getProgramStagesID(){
 function createTable(programStagesID){
 	clearTable();
 	//var url = "http://inf5750-1.uio.no/api/programStages/" + programStagesID + ".json";
-	var url = "http://inf5750-1.uio.no/api/programStages/MpL4KvKfdx9.json"
+	var url = "http://" + window.location.host + "/api/programStages/" + programStagesID + ".json";
 	
 	$.getJSON(url, function (data) {
 		data = data.programStageDataElements;

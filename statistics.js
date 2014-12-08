@@ -5,7 +5,7 @@
 * Called by body onLoad in statistics.html
 */
 function percentCalc() {
-	var url = window.location + "/api/systemSettings/phArray";
+	var url = "http://" + window.location.host + "/api/systemSettings/phArray";
 	//mockURL = "http://inf5750-1.uio.no/api/systemSettings/phArray";
 
 	$.getJSON(url, function(data){
@@ -31,7 +31,6 @@ function percentCalc() {
 				for (var key3 in altArray[key].clinic.forms[key2]) {
 					//iterates all submits' submits
 					for (var key4 in altArray[key].clinic.forms[key2].submits[key3]) {
-						console.log(altArray[key].clinic.forms[key2].submits[key3])
 					}
 				}
 

@@ -2,11 +2,11 @@
  "version": "0.1",
  "name": "Quality Assurance",
  "description": "My app description",
- "launch_path": "/index.html",
+ "launch_path": "index.html",
  "icons": {
- "16": "/img/icons/qa-16.png",
- "48": "/img/icons/qa-48.png",
- "128": "/img/icons/qa-128.png"
+ "16": "img/icons/qa-16.png",
+ "48": "img/icons/qa-48.png",
+ "128": "img/icons/qa-128.png"
  },
  "developer": {
  "name": "placeholder"

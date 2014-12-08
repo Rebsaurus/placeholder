@@ -12,8 +12,9 @@ var formCompleteRows;
 * Is called by itself when index is loaded
 */
 $(function getForms (){
-	url = window.location + "/api/programs.json";
 	//url2 = "http://inf5750-1.uio.no/api/programs.json";
+	url = "http://" + window.location.host + "/api/programs.json"
+	
 
 	$.getJSON(url, function (data){
 		data = data.programs;
@@ -60,7 +61,7 @@ function getFacilities (){
 	document.getElementById("facility").value = "";
 	document.getElementById("table").style.display = "none";
 
-	url = window.location + "/api/programs/" + formID + ".json";
+	url = "http://" + window.location.host + "/api/programs/" + formID + ".json";
 	//mockURL = "http://inf5750-1.uio.no/api/programs/" + formID + ".json";
 	$.getJSON(url, function (data){
 		data = data.organisationUnits;
@@ -96,29 +97,38 @@ function getFacilities (){
 
 /**
 * Pushes the ID and checked-status to checkboxArray
-* Calls waitForMakeObjet() with checkboxArray
+* Calls waitForGetObjet() with checkboxArray
 * Is called by onClick submit-button in index.html
 */
 function createData(){
-  var checkBoxArray = [];
-  $('#qaTable').find('input[type="checkbox"]').each(function () {
-    var checkBox = this;
+	var checkBoxArray = [];
+	$('#qaTable').find('input[type="checkbox"]').each(function () {
+		var checkBox = this;
 
-    if(checkBox.checked == true){
-      checkBoxArray.push({
-        id: checkBox.id,
-        checked: true
-      })
+		if(checkBox.checked == true){
+			checkBoxArray.push({
+				id: checkBox.id,
+				checked: true
+			})
 
-    }else{
-      checkBoxArray.push({
-        id: checkBox.id,
-        checked: false
-      })
-    }
-  });
+		}else{
+			checkBoxArray.push({
+				id: checkBox.id,
+				checked: false
+			})
+		}
+	});
 
-  waitForMakeObjects(checkBoxArray);
+	waitForGetObjects(checkBoxArray);
+}
+
+function clearBoxes(){
+	$('#qaTable').find('input[type="checkbox"]').each(function () {
+		var checkBox = this;
+		if(checkBox.checked === true){
+			checkBox.checked = false
+		}
+	});
 }
 
 /**
@@ -128,7 +138,6 @@ function createData(){
 */
 function waitForGetObjects(checkboxArray){
 	//clearSystemSettings(); return;
-	console.log("MAKE OBJECT");
 	formTotalRows = 0;
 	formCompleteRows = 0;
 	$.when(getObjects())
@@ -148,16 +157,14 @@ function waitForGetObjects(checkboxArray){
 * Resolves jQuery.Deferred when for-loop is done.
 */
 function getObjects(){
-	console.log("GET OBJECTS");
-
 	var dfd = new jQuery.Deferred();
 
-	var url = window.location + "/api/systemSettings/phArray";
+	var url = "http://" + window.location.host + "/api/systemSettings/phArray";
 	//mockURL = "http://inf5750-1.uio.no/api/systemSettings/phArray";
 
 	$.getJSON(url, function(data){
 		phArray = data;
-		console.log("PH: " + phArray.length);
+
 		for (var key in phArray){
 			if(phArray[key].clinic.cID === facilityID){
 				forms = phArray[key].clinic.forms;
@@ -167,7 +174,7 @@ function getObjects(){
 					formCompleteRows = phArray[key].clinic.forms[key2].formCompleteRows;
 					formTotalRows = phArray[key].clinic.forms[key2].formTotalRows;
 					submits = phArray[key].clinic.forms[key2].submits;
-					console.log(submits);
+					//console.log(submits);
 				}
 			}
 		}
@@ -228,7 +235,6 @@ function makeObject(checkboxArray){
 		// phArray does not contain clinic
 		forms = [];
 
-		console.log(forms);
 		forms.push({
 			name: formName,
 			fID: formID,
@@ -237,7 +243,6 @@ function makeObject(checkboxArray){
 			submitCount: 1,
 			submits: submits
 		});
-		console.log(forms);
 
 		clinic = {
 			name: facilityName,
@@ -267,7 +272,7 @@ function containsForm(){
 				phArray[key].clinic.forms[key2].formTotalRows = formTotalRows + rowCount;
 				phArray[key].clinic.forms[key2].submitCount++;
 				phArray[key].clinic.forms[key2].submits = submits;
- 
+
 				return true;
 			}
 		}
@@ -283,11 +288,12 @@ function postObjects(dataJSON){
 	$.ajax({
 		contentType: "text/plain",
 		type: "POST",
-		url: window.location + "/api/systemSettings/phArray", //"http://inf5750-1.uio.no/api/systemSettings/phArray",
+		url: "http://" + window.location.host + "/api/systemSettings/phArray", //"http://inf5750-1.uio.no/api/systemSettings/phArray",
 		data: JSON.stringify(dataJSON),
 		success: function(data){
 		}
 	});
+	clearBoxes();
 }
 
 /**
@@ -300,7 +306,7 @@ function clearSystemSettings(){
 	$.ajax({
 		contentType: "text/plain",
 		type: "POST",
-		url: window.location + "/api/systemSettings/phArray", //"http://inf5750-1.uio.no/api/systemSettings/phArray",
+		url: "http://" + window.location.host + "/api/systemSettings/phArray", //"http://inf5750-1.uio.no/api/systemSettings/phArray",
 		data: JSON.stringify(clear),
 		success: function(data){
 		}

@@ -294,7 +294,7 @@ function postObjects(dataJSON){
 		}
 	});
 	clearBoxes();
-	successfullSubmit();
+	successfulSubmit();
 }
 
 /**
@@ -315,8 +315,9 @@ function clearSystemSettings(){
 	console.log("Cleared systemSettings/phArray");
 }
 
-function successfullSubmit(){
-	$('#successfullSubmit').html("Submit successfull");
+function successfulSubmit(){
+	$('#successfulSubmit').fadeIn(20);
+	$('#successfulSubmit').html("Submit successful");
     //define text
     var text = '....';
     //text is split up to letters
@@ -324,8 +325,8 @@ function successfullSubmit(){
         //we add 100*i ms delay to each letter 
         setTimeout(function(){
           	//we add the letter to the container
-           	$('#container').html(letter + $('#container').html() + letter);
+           	$('#successfulSubmit').html(letter + $('#successfulSubmit').html() + letter);
         }, i*300);
     });
-    $('#successfullSubmit').fadeOut(2000);
+    $('#successfulSubmit').fadeOut(2000);
 }

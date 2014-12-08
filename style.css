@@ -17,7 +17,7 @@ body {
 
 /*Responsive Design */
 /*Layout for phone sized display */
-@media only screen and (max-width: 550px) {
+/*@media only screen and (max-width: 550px) {
 	input.largerCheckbox{
 		-transform: scale(2);
 		-webkit-transform: scale(2);
@@ -118,7 +118,7 @@ body {
 		display: none;
 	}
 	
-}
+}*/
 /* -END- responsive design */
 
 .canvasLoader{
@@ -193,4 +193,109 @@ a:visited{
 a:active{
 	color: #6186AC;
 
+}
+
+
+
+@media only screen and (max-device-width: 550px) {
+	input.largerCheckbox{
+		-transform: scale(2);
+		-webkit-transform: scale(2);
+		-ms-transform: scale(2);
+		-moz-transform: scale(2);
+		-o-transform: scale(2);
+	}
+
+	.pgSelector{
+		height: 30%;
+		width: 50%;
+		font-size: 100%;
+	}
+
+	input.facSelector{
+		text-align: center;
+
+		height: 5%;
+		width: 50%;
+		font-size: 90%;  	
+	}
+
+	.qaTabell { 
+		line-height: 30px;
+		font-size: 20px;
+	}
+	.submitButton{
+		width:80%; height:30px;
+		background-color: #1d5288;
+    	border-radius: 5px;
+    	padding: 3px 7px 3px 7px;
+    	text-decoration: none;
+    	color: #F0F0F0;
+    	font-family: Arial;
+    	font-weight: bold;
+    	font-size: 100%;
+	}
+	.newSelectButton{
+		width:80%; height:30px;
+		background-color: #1d5288;
+    	border-radius: 5px;
+    	padding: 3px 7px 3px 7px;
+    	text-decoration: none;
+    	color: #F0F0F0;
+    	font-family: Arial;
+    	font-weight: bold;
+    	font-size: 100%;
+
+	}
+	.hideOnPhone{
+		display: none;
+	}
+	.showOnPhone{
+		display: block;
+	}
+}
+
+@media only screen and (min-device-width: 551px) {
+	input.largerCheckbox{
+		-transform: scale(3);
+		-webkit-transform: scale(3);
+		-ms-transform: scale(3);
+		-moz-transform: scale(3);
+		-o-transform: scale(3);
+
+	}
+
+	.pgSelector{
+		height: 9%;
+		width: 50%;
+		font-size: 130%;
+	}
+
+	input.facSelector{
+		text-align: center;
+    
+    	font-size: 130%;
+    	width: 50%;
+    	height: 5%; 	
+	}
+
+	.qaTabell { 
+		line-height: 50px;
+		font-size: 25px; 
+	}
+	.submitButton{
+		width:20%; height:40px;
+		background-color: #1d5288;
+    	border-radius: 5px;
+    	padding: 3px 7px 3px 7px;
+    	text-decoration: none;
+    	color: #F0F0F0;
+    	font-family: Arial;
+    	font-weight: bold;
+    	font-size: 150%;
+	}
+	.newSelectButton{
+		display: none;
+	}
+	
 }

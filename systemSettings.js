@@ -56,6 +56,7 @@ $(function getForms (){
 * Is called by onChange in select #programs located in index.html
 */
 function getFacilities (){
+	document.getElementById("waitingForFacilities").style.display = "block";
 	//document.getElementById("selectFacilityDiv").style.display = "block";
 	//url = window.location + "/api/programs/" + formID + ".json";
 	mockURL = "http://inf5750-1.uio.no/api/programs/" + formID + ".json";
@@ -85,6 +86,7 @@ function getFacilities (){
 				allClinicNames[i] = sorted[i].name;
 			}
 
+			document.getElementById("waitingForFacilities").style.display = "none";
 			document.getElementById("selectFacilityDiv").style.display = "block";
 		}
 	});

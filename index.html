@@ -12,6 +12,7 @@
   <script src="systemSettings.js"></script>
   <script src="main.js"></script>
   <script src="popTable.js"></script>
+  <script src="canvasloader.js"></script>
 
   <link rel="stylesheet" href="style.css">
   <!--<link rel="stylesheet" href="style.css"> tror ikke denne trengs -->
@@ -35,16 +36,22 @@
   <div id="selector">
     <div id="selectFormDiv" >
       <br><br>
-      <select id="program" class="pgSelector" onChange="setFormID(value); getFacilities()"></select> <!-- setFrom ID is located in main.js, getFacilites is located in api_calls.js-->
+      <select id="program" class="pgSelector" onChange="setFormID(value); getFacilities()"></select> <!-- setFrom ID is located in main.js, getFacilites is located in systemSettings.js-->
     </div>
 
+    <!-- shows loading while waiting for facilities[] to fill up -->
     <div id="noJSON" style="display:none">
       <h3>No forms found</h3>
     </div>
 
+    <div id="waitingForFacilities" style="display:none">
+       <br><br>
+      <div class="canvasLoader"></div>
+    </div>
+
     <div id="selectFacilityDiv" style="display:none" class="ui-widget">
       <br><br><br>
-      <input id="facility" class="facSelector" type="text" onKeyPress="textFilter(value)" data-role="autocomplete" data-bind="sorted">
+      <input id="facility" class="facSelector" type="text" onKeyPress="textFilter(value)">
     </div>
   </div>
 

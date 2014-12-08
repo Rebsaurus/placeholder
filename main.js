@@ -106,18 +106,11 @@ function setSelected(event, ui){
   }
 }
 
-function loadingFacilities(){
-  /*$("img.ajaxLoader").canvasLoader({
-    'radius': 10,
-    'color': rgb(255,0,0),
-    'dotRadius':10,
-    'className':'canvasLoader',   
-    'backgroundColor':'transparent',   
-    'id':'canvasLoader1',
-    'fps':10
-  });*/
-
-  var cl = new CanvasLoader('canvasloader-container');
+/**
+* Is called by #programs in index.html
+*/
+$(function loadingFacilities(){
+  var cl = new CanvasLoader('waitingForFacilities');
     cl.setColor('#1d5288'); // default is '#000000'
     cl.setShape('spiral'); // default is 'oval'
     cl.setDiameter(32); // default is 40
@@ -125,8 +118,7 @@ function loadingFacilities(){
     cl.setRange(1); // default is 1.3
     cl.setSpeed(5); // default is 2
     cl.show(); // Hidden by defaul
-
-}
+});
 
 
 /**

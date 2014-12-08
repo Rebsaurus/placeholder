@@ -1,10 +1,94 @@
-//var phObject = []; //Allmighty array, should be fetched from a pretty systemSettings URL
-var phObject = {};
 var phArray = [];
 var submits = [];
 var forms = [];
 var formTotalRows;
 var formCompleteRows;
+
+
+/**
+* Gets a JSON object containing all forms from /api/programs.json
+* Sorts them alphabetically
+* Puts them in a HTML select #programs located in index.html
+* Is called by itself when index is loaded
+*/
+$(function getForms (){
+	//url = window.location + "/api/programs.json;
+	url2 = "http://inf5750-1.uio.no/api/programs.json";
+
+	$.getJSON(url2, function (data){
+		data = data.programs;
+
+		if(data == null){
+			document.getElementById("noJSON").style.display = "block";
+		} else{
+			var forms = [];
+			for(var i = 0; i < data.length; i++) {
+				if(i == 0){
+					forms.push({
+						id: "index",
+						name: " <---- Choose a form ---->"
+					});
+				} else {
+					forms.push({
+						id: data[i].id,
+						name: data[i].name
+					});					
+				}
+			}
+			
+			/**
+			* Sorts said array
+			*/
+			var sorted = forms.sort(function(a,b){
+				return a.name.localeCompare(b.name);
+			});
+
+			for(var key in forms){
+				$('#program').append('<option value="' + forms[key].id + '">' + forms[key].name +  '</option>');
+			}
+		}
+	});
+});
+
+/**
+* Sets a JSON object containing all facilities that have access to the chosen
+* Sorts them alphabetically
+* Is called by onChange in select #programs located in index.html
+*/
+function getFacilities (){
+	//document.getElementById("selectFacilityDiv").style.display = "block";
+	//url = window.location + "/api/programs/" + formID + ".json";
+	mockURL = "http://inf5750-1.uio.no/api/programs/" + formID + ".json";
+	$.getJSON(mockURL, function (data){
+		data = data.organisationUnits;
+
+		if(data == null){
+			document.getElementById("noJSON").style.display = "block";
+		} else{
+
+			/**
+			* Places all clinics in an associative array
+			*/
+			facilities = [];
+			for(var i = 0; i < data.length; i++) {
+				facilities.push({
+					id: data[i].id,
+					name: data[i].name
+				});					
+			}
+
+			sorted = facilities.sort(function(a,b){
+				return a.name.localeCompare(b.name);
+			});
+
+			for (var i in sorted){
+				allClinicNames[i] = sorted[i].name;
+			}
+
+			document.getElementById("selectFacilityDiv").style.display = "block";
+		}
+	});
+}
 
 /**
 * Pushes the ID and checked-status to checkboxArray

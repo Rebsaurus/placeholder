@@ -1,6 +1,4 @@
-
 /* dhis blue: #1d5288*/
-
 
 html {
 	/*position: fixed;*/
@@ -18,7 +16,7 @@ body {
 }
 
 /*Responsive Design */
-/*Layout for phonesized display */
+/*Layout for phone sized display */
 @media only screen and (max-width: 550px) {
 	input.largerCheckbox{
 		-transform: scale(2);
@@ -26,6 +24,18 @@ body {
 		-ms-transform: scale(2);
 		-moz-transform: scale(2);
 		-o-transform: scale(2);
+	}
+
+	.pgSelector{
+		height: 30%;
+		width: 50%;
+		font-size: 100%;
+	}
+
+	input.facSelector{
+		height: 5%;
+		width: 50%;
+		font-size: 90%;  	
 	}
 
 	.qaTabell { 
@@ -72,6 +82,21 @@ body {
 		-o-transform: scale(3);
 
 	}
+
+	.pgSelector{
+		height: 9%;
+		width: 50%;
+		font-size: 130%;
+	}
+
+	input.facSelector{
+		text-align: left;
+    
+    	font-size: 130%;
+    	width: 50%;
+    	height: 5%; 	
+	}
+
 	.qaTabell { 
 		line-height: 50px;
 		font-size: 25px; 
@@ -95,11 +120,8 @@ body {
 /* -END- responsive design */
 
 #qaTable table, th, td {
-    /*border: 1px solid;*/
-    /*border: dotted 1px black; */
-
     border-collapse: collapse;
-    /*border-color: #0066FF;*/
+
     margin-top: 2%;
     text-align: center;
 
@@ -163,18 +185,4 @@ a:visited{
 a:active{
 	color: #6186AC;
 
-}
-
-input[type=text]{
-	text-align: center;
-    
-    font-size: 130%;
-    width: 50%;
-    height: 5%;
-}
-
-select{
-	height: 9%;
-	width: 50%;
-	font-size: 130%;
 }

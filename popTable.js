@@ -1,6 +1,8 @@
 
 /**
-*Gets programStages' ID for the selected form
+* Gets programStages' ID for the selected form
+* Is called by showInfo in main.js
+* Calls createTable
 */
 function getProgramStagesID(){
 	//url = window.location + "/api/programs/" + formID + ".json";
@@ -15,8 +17,9 @@ function getProgramStagesID(){
 
 /**
 * Extract the names the names for both the x and y axis from JSON
+* Calls clearTable at the begining
 * Calls populateTable
-* Is called by 
+* Is called by getProgramStagesID
 */
 function createTable(programStagesID){
 	clearTable();
@@ -102,7 +105,7 @@ function populateTable(info, sjekk){
 
 /**
 * Clears qaTable, preventing multiple tables
-* Is called by 
+* Is called by createTable 
 */
 function clearTable(){
 	$("#qaTable").html(""); 

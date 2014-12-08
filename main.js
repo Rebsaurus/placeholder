@@ -15,15 +15,17 @@ var facilities;
 var sorted;
 
 
-String.prototype.startsWith = function(str){
-  return this.indexOf(str) == 0;
-}
-
-
+/**
+* Sets the ID of the chosen form
+* Is called by select #facilities located in index.html
+*/
 function setFormID(value){
   formID = value;
 }
 
+/**
+* Sets the ID of the chosen facility
+*/
 function setFacilityID(value){
   facilityID = value;
 }
@@ -50,23 +52,8 @@ $(function howManyAreChecked() {
 });
 
 /**
-* Displays table when form and facility have been selected  
-* Is called by 
-* Calls getProgramStagesID() and showInfo()
-*/
-function setSelected(event, ui){
-  var selectedObj = ui.item; 
-  facilityName = selectedObj.value;
-  for (i in sorted){
-    if (sorted[i].name === selectedObj.value){
-      setFacilityID(sorted[i].id);
-      showInfo();
-    }
-  }
-}
-
-/**
-* Changes display properties of varios divs
+* Changes display properties of various divs
+* Calls getProgramStages()
 */
 function showInfo(){         
   document.getElementById("table").style.display = "block";
@@ -79,7 +66,8 @@ function showInfo(){
 }
 
 /**
-* Changes display properties of varios divs
+* Changes display properties of various divs
+* Is called by 
 */
 function selectNew(){
   document.getElementById("selector").className = "showOnPhone";
@@ -89,6 +77,7 @@ function selectNew(){
 /**
 * Filters suggestions when user types
 * Is called onKeyPress() by div #facility in index.html
+* Calls setSelected
 */
 function textFilter(value){
   $(function(){
@@ -101,6 +90,45 @@ function textFilter(value){
   });
 }
   
+/**
+* Displays table when form and facility have been selected  
+* Is called by textFilter()
+* Calls setFacilityID() and showInfo()
+*/
+function setSelected(event, ui){
+  var selectedObj = ui.item; 
+  facilityName = selectedObj.value;
+  for (i in sorted){
+    if (sorted[i].name === selectedObj.value){
+      setFacilityID(sorted[i].id);
+      showInfo();
+    }
+  }
+}
+
+function loadingFacilities(){
+  /*$("img.ajaxLoader").canvasLoader({
+    'radius': 10,
+    'color': rgb(255,0,0),
+    'dotRadius':10,
+    'className':'canvasLoader',   
+    'backgroundColor':'transparent',   
+    'id':'canvasLoader1',
+    'fps':10
+  });*/
+
+  var cl = new CanvasLoader('canvasloader-container');
+    cl.setColor('#1d5288'); // default is '#000000'
+    cl.setShape('spiral'); // default is 'oval'
+    cl.setDiameter(32); // default is 40
+    cl.setDensity(100); // default is 40
+    cl.setRange(1); // default is 1.3
+    cl.setSpeed(5); // default is 2
+    cl.show(); // Hidden by defaul
+
+}
+
+
 /**
 * Prints the IDs of the forms and facilities
 * Is not called by anything right now.

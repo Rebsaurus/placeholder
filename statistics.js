@@ -5,9 +5,10 @@
 * Called by body onLoad in statistics.html
 */
 function percentCalc() {
-	mockURL = "http://inf5750-1.uio.no/api/systemSettings/phArray";
+	var url = window.location + "/api/systemSettings/phArray";
+	//mockURL = "http://inf5750-1.uio.no/api/systemSettings/phArray";
 
-	$.getJSON(mockURL, function(data){
+	$.getJSON(url, function(data){
 		var altArray = data;
 		// iterates through array[0] which is clinic-objects
 		for (var key in altArray) {

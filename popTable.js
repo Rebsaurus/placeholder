@@ -5,10 +5,10 @@
 * Calls createTable
 */
 function getProgramStagesID(){
-	//url = window.location + "/api/programs/" + formID + ".json";
-	var mockURL = "http://inf5750-1.uio.no/api/programs/" + formID + ".json";
+	url = window.location + "/api/programs/" + formID + ".json";
+	//var mockURL = "http://inf5750-1.uio.no/api/programs/" + formID + ".json";
 	var programStagesID;
-	$.getJSON(mockURL, function (data){
+	$.getJSON(url, function (data){
 		data = data.programStages;
 		programStagesID = data[0].id;
 		createTable(programStagesID);
@@ -23,8 +23,8 @@ function getProgramStagesID(){
 */
 function createTable(programStagesID){
 	clearTable();
-	var url = "http://inf5750-1.uio.no/api/programStages/" + programStagesID + ".json";
-	//var url = "http://inf5750-1.uio.no/api/programStages/MpL4KvKfdx9.json"
+	//var url = "http://inf5750-1.uio.no/api/programStages/" + programStagesID + ".json";
+	var url = "http://inf5750-1.uio.no/api/programStages/MpL4KvKfdx9.json"
 	
 	$.getJSON(url, function (data) {
 		data = data.programStageDataElements;

@@ -12,10 +12,10 @@ var formCompleteRows;
 * Is called by itself when index is loaded
 */
 $(function getForms (){
-	//url = window.location + "/api/programs.json;
-	url2 = "http://inf5750-1.uio.no/api/programs.json";
+	url = window.location + "/api/programs.json";
+	//url2 = "http://inf5750-1.uio.no/api/programs.json";
 
-	$.getJSON(url2, function (data){
+	$.getJSON(url, function (data){
 		data = data.programs;
 
 		if(data == null){
@@ -57,10 +57,12 @@ $(function getForms (){
 */
 function getFacilities (){
 	document.getElementById("waitingForFacilities").style.display = "block";
-	//document.getElementById("selectFacilityDiv").style.display = "block";
-	//url = window.location + "/api/programs/" + formID + ".json";
-	mockURL = "http://inf5750-1.uio.no/api/programs/" + formID + ".json";
-	$.getJSON(mockURL, function (data){
+	document.getElementById("facility").value = "";
+	document.getElementById("table").style.display = "none";
+
+	url = window.location + "/api/programs/" + formID + ".json";
+	//mockURL = "http://inf5750-1.uio.no/api/programs/" + formID + ".json";
+	$.getJSON(url, function (data){
 		data = data.organisationUnits;
 
 		if(data == null){
@@ -150,9 +152,10 @@ function getObjects(){
 
 	var dfd = new jQuery.Deferred();
 
-	mockURL = "http://inf5750-1.uio.no/api/systemSettings/phArray";
+	var url = window.location + "/api/systemSettings/phArray";
+	//mockURL = "http://inf5750-1.uio.no/api/systemSettings/phArray";
 
-	$.getJSON(mockURL, function(data){
+	$.getJSON(url, function(data){
 		phArray = data;
 		console.log("PH: " + phArray.length);
 		for (var key in phArray){
@@ -264,7 +267,7 @@ function containsForm(){
 				phArray[key].clinic.forms[key2].formTotalRows = formTotalRows + rowCount;
 				phArray[key].clinic.forms[key2].submitCount++;
 				phArray[key].clinic.forms[key2].submits = submits;
-				console.log("CONTEINSTRUU"); 
+ 
 				return true;
 			}
 		}
@@ -276,11 +279,11 @@ function containsForm(){
 * Posts strigified JSON-object to URL /api/systemSettings/phArray
 */
 function postObjects(dataJSON){
-	console.log("POST OBJECTS")
+
 	$.ajax({
 		contentType: "text/plain",
 		type: "POST",
-		url: "http://inf5750-1.uio.no/api/systemSettings/phArray",
+		url: window.location + "/api/systemSettings/phArray", //"http://inf5750-1.uio.no/api/systemSettings/phArray",
 		data: JSON.stringify(dataJSON),
 		success: function(data){
 		}
@@ -297,7 +300,7 @@ function clearSystemSettings(){
 	$.ajax({
 		contentType: "text/plain",
 		type: "POST",
-		url: "http://inf5750-1.uio.no/api/systemSettings/phArray",
+		url: window.location + "/api/systemSettings/phArray", //"http://inf5750-1.uio.no/api/systemSettings/phArray",
 		data: JSON.stringify(clear),
 		success: function(data){
 		}
